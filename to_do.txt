@@ -1,0 +1,16 @@
+ENLACES DE INTERES:
+
+    -
+
+PARTES DEL PROYECTO:
+    
+    - jmartos-: raycaster
+    - arosas-j: parser
+
+TO_DO (jmartos-):
+
+    -
+
+TO_DO (arosas-j):
+
+    -
