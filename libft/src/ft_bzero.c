@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:49:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:24:05 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:15:43 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /* Copia el numero 0 en las primeras "n" posiciones de "s". */
 void	ft_bzero(void *s, size_t n)

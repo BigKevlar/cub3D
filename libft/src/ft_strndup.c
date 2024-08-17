@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 22:48:59 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/10 00:32:57 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/08/17 17:22:29 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 char	*ft_strndup(const char *s1, int n)
 {

@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:59:31 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:25:52 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:17:39 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Itera (avanza) en la lista "lst" y aplica la función "f" en el
 contenido de cada nodo.#*/

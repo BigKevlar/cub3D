@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 13:13:18 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:25:40 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:17:24 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Añade el nodo "new" al final de la lista "lst".#*/
 void	ft_lstadd_back(t_list **lst, t_list *new)

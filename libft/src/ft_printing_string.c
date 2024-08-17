@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:08:59 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:41 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:20:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "../inc/ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime una cadena de caracteres (%s). */
 int	ft_printing_string(char *s)

@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 21:22:06 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/25 01:58:24 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:17:56 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 static void	ft_matrix_free(char **str)
 {

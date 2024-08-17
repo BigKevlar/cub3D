@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:53:21 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:14 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Envía el carácter "c" al descriptor "fd".#*/
 void	ft_putchar_fd(char c, int fd)

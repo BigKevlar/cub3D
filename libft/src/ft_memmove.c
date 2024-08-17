@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:35:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:15 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:18:06 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /* Copia al final de "dst" "len" bytes de "src", asegurando superposicion. */
 void	*ft_memmove(void *dst, const void *src, size_t len)

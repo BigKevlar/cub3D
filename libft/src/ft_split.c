@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:00:35 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:27:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:33 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#La función principal reserva en memoria una cadena de strings "s"
 en substrings usando un delimitador "c" para separarlos entre si.

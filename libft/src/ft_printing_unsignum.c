@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:14:30 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:43 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:20:39 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "../inc/ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime numeros enteros sin signo (%u). */
 void	ft_putnbr_unsigned(unsigned int n)

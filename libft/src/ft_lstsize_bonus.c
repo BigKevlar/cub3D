@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 11:53:39 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:02 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:17:51 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Cuenta el número de nodos de una lista.#*/
 int	ft_lstsize(t_list *lst)

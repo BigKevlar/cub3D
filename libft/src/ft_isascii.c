@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 20:14:49 by kevlar            #+#    #+#             */
-/*   Updated: 2024/03/21 18:25:21 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:16:38 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /* Comprueba si un caracter "x" esta representado en la tabla ASCII. */
 int	ft_isascii(int x)

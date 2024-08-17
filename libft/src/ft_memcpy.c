@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 13:51:56 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:12 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:18:04 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /* Copia al final de "dst" "n" bytes de "src", directamente. */
 void	*ft_memcpy(void *dst, const void *src, size_t n)

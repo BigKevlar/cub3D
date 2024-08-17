@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 11:31:27 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:27:20 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:35 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /* Busca en la cadena "s" el primer caracter "c". */
 char	*ft_strchr(const char *s, int c)

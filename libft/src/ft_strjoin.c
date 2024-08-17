@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:15:46 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:27:31 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:22:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Combina dos cadenas "s1 y "s2 en una nueva, reservando memoria para ello.#*/
 char	*ft_strjoin(char const *s1, char const *s2)

@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:09:09 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:23 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "../inc/ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime un solo caracter o simbolo (%c, %%). */
 int	ft_printing_char(int c)

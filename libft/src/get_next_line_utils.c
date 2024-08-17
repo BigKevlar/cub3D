@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:01:20 by jmartos-          #+#    #+#             */
-/*   Updated: 2023/08/18 21:59:27 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:29:16 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-/* AQUI PONDREMOS FUNCIONES ADICIONALES, YA QUE NO USAMOS NUESTRA "LIBFT". */
+#include "../inc/get_next_line.h"
 
 /* Cuenta la longuitud de una cadena "*str". */
 size_t	gnl_strlen(char *str)

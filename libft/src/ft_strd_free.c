@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strd_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:46:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/08 10:04:35 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:46 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 void	ft_strd_free(char **str)
 {

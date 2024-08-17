@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:14:45 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:28:02 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:22:23 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Ejecuta una funcion "f" dada a cada caracter de una cadena de caracteres y
 devuelve una nueva cadena con los resultados de esa funcion.#*/

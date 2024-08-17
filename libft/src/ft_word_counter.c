@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:25:28 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/22 22:39:55 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:22:53 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 int	ft_word_counter(char const *str, char letter)
 {

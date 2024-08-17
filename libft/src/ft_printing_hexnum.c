@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:15:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:27 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:20:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "../inc/ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime numeros en base hexadecimal en minusculas (%x) o mayusculas (%X). */
 int	hexnum_len(unsigned int n)

@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 17:26:51 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:25:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:17:21 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Al contrario que "ft_atoi", convierte un valor entero a una cadena "str",
 (itoa = Integer to ASCII).

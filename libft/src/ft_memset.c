@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:45:48 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:18 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:19:42 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /* Copia en "b" el caracter "c" en sus primeras "len" posiciones. */
 void	*ft_memset(void *b, int c, size_t len)

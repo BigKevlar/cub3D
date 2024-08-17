@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 23:40:57 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/25 02:04:23 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:15:55 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 char	*ft_delete_str(char *main, size_t start, size_t finish)
 {

@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 10:17:30 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:08 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:18:01 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Compara los primeros "n" bytes de "s1" y "s2" (en ASCII), y devuelve un
 número negativo si "s1" es menor que "s2", un número positivo si "s1" es

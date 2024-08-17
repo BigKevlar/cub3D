@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:33:40 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:21 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:03 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "../inc/ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /*
 Antes de la funcion principal vamos a hacer una subfuncion que nos

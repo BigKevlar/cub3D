@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 17:20:46 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/22 22:39:12 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:39 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

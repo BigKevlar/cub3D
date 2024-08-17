@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:44:54 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:05 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:17:58 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Busca el caracter "c" en los primeros "n" bytes de "s".
 Si se encuentra el caracter la función devuelve un puntero al contenido

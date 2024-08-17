@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:16:46 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:24:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:15:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /*LIBRERIA CUSTOM "jmartos-"*/
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 /*#Reserva memoria y crea una matriz con "count" elementos y de
 tamaño "size" cada uno. Utilizamos la funcion ft_bzero para asegurarnos

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strd_lastdel.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevlar <kevlar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:10:06 by kevlar            #+#    #+#             */
-/*   Updated: 2024/07/08 10:17:47 by kevlar           ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 char	**ft_strd_lastdel(char **str)
 {

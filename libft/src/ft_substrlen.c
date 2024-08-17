@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:08:35 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/22 22:39:24 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:22:44 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 int	ft_substrlen(char *str, int start, char chr)
 {

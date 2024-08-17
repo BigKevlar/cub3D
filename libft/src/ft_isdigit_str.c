@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:08:04 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:59 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:16:46 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 int	ft_isdigit_str(char *str)
 {

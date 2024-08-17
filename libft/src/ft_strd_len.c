@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strd_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rguerrer <rguerrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:36:38 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/07/08 19:30:16 by rguerrer         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:21:53 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" /* Libreria 42 "jmartos-". */
+#include "../inc/libft.h" /* Libreria 42 "jmartos-". */
 
 int	ft_strd_len(char **str)
 {

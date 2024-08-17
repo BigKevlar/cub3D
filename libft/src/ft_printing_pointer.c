@@ -6,11 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:09:47 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/03/21 18:26:34 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 17:20:55 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
+#include "../inc/ft_printf.h" /* Funcion printf CUSTOM "jmartos-". */
 
 /* Imprime la direccion de un puntero "void *" en valor hexadecimal (%p). */
 int	pointer_len(uintptr_t n)
