@@ -39,6 +39,10 @@ OBJECTS = $(FUNCTIONS:.c=.o)
 # (Variable) Flags para compilar.
 FLAGS = -Wall -Werror -Wextra -c
 
+BOLD			=\033[1m
+RED				=\033[31;1m
+NO_COLOR		=\033[0m
+
 # (Reglas) 
 # Importante: las reglas se ejecutan de abajo hacia arriba y de derecha a izquierda.
 all: $(NAME)
@@ -50,6 +54,7 @@ $(NAME): $(OBJECTS)
 	@gcc $(FLAGS) -I includes -o $@ -c $<
 
 clean:
+	@echo "${RED}${BOLD}Cleaning...${NO_COLOR}"
 	@rm -f $(OBJECTS)
 	
 fclean: clean

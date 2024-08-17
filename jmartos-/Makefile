@@ -2,15 +2,15 @@ NAME			= cub3D
 
 CFLAGS			= -Wall -Wextra -Werror -g
 
-INC				= -I inc/ -I ../libft/inc -I ../MLX42/include/MLX42
+INC				= -I inc/ -I ../libft/inc/ -I ../MLX42/include/MLX42/
 
-SRC				=	src/cub3D.c 
+SRC				=	src/cub3d.c 
 
 OBJS 			= ${SRC:.c=.o}
 
-LIBFT			= ./libft/libft.a
+LIBFT			= ../libft/libft.a
 
-MLX42			= ./MLX42/libmlx42.a
+MLX42			= ../MLX42/libmlx42.a
 
 BOLD			=\033[1m
 RED				=\033[31;1m
@@ -20,19 +20,19 @@ BLUE			=\033[34;1m
 NO_COLOR		=\033[0m
 
 ${NAME}: ${LIBFT} ${MLX42} ${OBJS}
-	@echo "${GREEN}${BOLD} GAME SUCCESSFULLY COMPILED ${END}"
-	@gcc $(CFLAGS) $(OBJS) $(MLX42) $(LIBFT) -I inc -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
-	@echo "${GREEN}${BOLD} WELCOME TO "CUB3D", 42_MALAGA PROYECT FROM ${BLUE}${BOLD} JMARTOS- ${END} AND ${BLUE}${BOLD} AROSAS-J ${END} ${END}"
+	@echo "${GREEN}${BOLD} GAME SUCCESSFULLY COMPILED ${NO_COLOR}"
+	@gcc $(CFLAGS) $(INC) $(OBJS) $(MLX42) $(LIBFT) -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+	@echo "${GREEN}${BOLD} WELCOME TO "CUB3D", 42_MALAGA PROYECT FROM ${BLUE}${BOLD}JMARTOS-${NO_COLOR} ${GREEN}${BOLD}AND${NO_COLOR} ${BLUE}${BOLD}AROSAS-J${NO_COLOR} ${NO_COLOR}"
 
 ${LIBFT}:
-	@echo "${YELLOW}${BOLD} BUILDING LIBFT. PLEASE BE PATIENT... ${END}"
+	@echo "${YELLOW}${BOLD} BUILDING LIBFT. PLEASE BE PATIENT... ${NO_COLOR}"
 	@make -C ../libft/ --silent
-	@echo "${GREEN}${BOLD} LIBFT COMPILED ${END}"
+	@echo "${GREEN}${BOLD} LIBFT COMPILED ${NO_COLOR}"
 
 ${MLX42}:
-	@echo "${YELLOW}${BOLD} BUILDING MINILIBX, FROM CODAM-CODING-COLLEGE. PLEASE BE PATIENT... ${END}"
+	@echo "${YELLOW}${BOLD} BUILDING MLX42. PLEASE BE PATIENT... ${NO_COLOR}"
 	@make -C ../MLX42/ --silent
-	@echo "${GREEN}${BOLD} MINILIBX COMPILED ${END}"
+	@echo "${GREEN}${BOLD} MINILIBX COMPILED ${NO_COLOR}"
 
 src/%.o: src/%.c
 	@gcc ${CFLAGS} ${INC} -c $< -o src/$(@F)
@@ -40,18 +40,16 @@ src/%.o: src/%.c
 all: ${NAME}
 
 clean:
+	@echo "${YELLOW}${BOLD} CLEANING PROTOCOL. PLEASE BE PATIENT... ${NO_COLOR}"
 	@rm -rf ${OBJS}
-	@make -C ../libft/ clean
-	@make -C ../MLX42/ clean
-	@echo "${RED}${BOLD} CLEAN PROTOCOL: DELETING .o FILES... ${END}"
+	@make -C ../libft/ --silent clean
+	@make -C ../MLX42/ --silent clean
 
 fclean: clean
 	@rm -f ${NAME}
-	@make -C ../libft/ fclean
-	@make -C ../MLX42/ fclean
-	@echo "${RED}${BOLD} FCLEAN PROTOCOL: DELETING .a FILES... ${END}"
+	@make -C ../libft/ --silent fclean
+	@make -C ../MLX42/ --silent fclean
 
 re: fclean all
-	@echo "${GREEN}${BOLD} RE PROTOCOL: RECOMPILATION SUCCESSFULL ${END}"
 
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:35:05 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/16 14:34:12 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/17 18:45:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	t_game	game;
-
-	
+	(void)ac;
+	(void)av;
+	return (0);	
 }
