@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:45:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/17 22:13:29 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/18 20:28:21 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 # define size_tileset 64 // Tamaño de los tilesets.
 # define FOV 66 // Angulo de vision del jugador (mismo que en Wolfenstein3D).
-# define WIDTH 1920
-# define HEIGHT 1080
-# define MINIMAP 300
+# define W_MAP 1920
+# define H_MAP 1080
+# define W_MMAP 640
+# define H_MMAP 480
 
 typedef struct s_player
 {
@@ -44,8 +45,10 @@ typedef struct s_game
 {
 	mlx_t	*mlx;
 	char	**map;
+	char	**map_copy;
 	int		row_x;
 	int		colum_y;
+	mlx_image_t		*image_player;
 	mlx_image_t		*image_floor;
 	mlx_image_t		*image_wall;
 }	t_game;
@@ -54,5 +57,10 @@ typedef struct s_raycast
 {
 	double	wallhit_distance;
 }	t_raycast;
+
+/*
+	FUNCIONES
+*/
+void	free_error(char *msg, t_game *game);
 
 #endif

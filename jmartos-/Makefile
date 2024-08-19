@@ -4,7 +4,10 @@ CFLAGS			= -Wall -Wextra -Werror -g
 
 INC				= -I inc/ -I ../libft/inc/ -I ../MLX42/include/MLX42/
 
-SRC				=	src/cub3d.c 
+SRC				=	src/cub3d.c \
+					src/init.c \
+					src/map.c \
+					src/free_error_exit.c
 
 OBJS 			= ${SRC:.c=.o}
 
