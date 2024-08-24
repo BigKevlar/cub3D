@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:45:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/23 20:51:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/24 14:18:03 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_game
 */
 void	free_error(char *msg, t_game *game);
 void	init_struct(t_game *game);
-void	parse_ext(char *av, t_game *game);
+void	parse_ext(char *av);
 void	get_file(t_game *game, char *file);
 void	get_texture(t_game *game);
 void	get_rgb(t_game *game);

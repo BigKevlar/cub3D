@@ -8,7 +8,7 @@ ENLACES DE INTERES:
 
 TO_DO (jmartos-):
 
-    - Entender como funciona el ray casting.
-    - ¿boton de pause?
-    - ¿sonidos?
+    - comprobacion de que el mapa sea lo ultimo del documento.
+    - poner que el mapa este bien cerrado (al menos el que contiene el jugador).
+    - 
     - 

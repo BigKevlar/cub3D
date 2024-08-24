@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:34:55 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/24 13:12:29 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/24 16:49:15 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	file_size(t_game *game, char *file)
 	game->file_size = 1;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		free_error("ERROR! FILE DOESN'T OPEN...", game);
+		free_error("ERROR! FILE DOESN'T EXIST...", game);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -28,7 +28,6 @@ static void	file_size(t_game *game, char *file)
 		line = get_next_line(fd);
 		game->file_size++;
 	}
-	ft_printf("*** DEBUG PRINT Nº2: %i\n", game->file_size);
 	close(fd);
 }
 
@@ -49,7 +48,6 @@ void	get_file(t_game *game, char *file)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		ft_printf("*** DEBUG PRINT Nº3: %s", line);
 		game->file[i] = line;
 		line = get_next_line(fd);
 		i++;
@@ -59,59 +57,96 @@ void	get_file(t_game *game, char *file)
 
 void	get_texture(t_game *game)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	*line;
+	char	**tokens;
 
 	i = 0;
 	while (game->file[i])
 	{
-		if (ft_strncmp(game->file[i], "NO ", 3) == 0)
+		line = ft_strtrim(game->file[i], " \t\n");
+		if (!line)
+			free_error("ERROR! MEMORY ALLOCATION FAILED...", game);
+		tokens = ft_split(line, ' ');
+		free(line);
+		if (!tokens)
+			free_error("ERROR! MEMORY ALLOCATION FAILED...", game);
+		if (tokens[0] && ft_strcmp(tokens[0], "NO") == 0 && tokens[1])
 		{
-			game->texture_NO = ft_strdup(game->file[i] + 3);
-			ft_printf("\n*** DEBUG PRINT Nº4: %s", game->texture_NO);
+			game->texture_NO = ft_strdup(tokens[1]);
+			ft_printf("*** NO DEBUG PRINT: %s\n", game->texture_NO);
 		}
-		else if (ft_strncmp(game->file[i], "SO ", 3) == 0)
+		else if (tokens[0] && ft_strcmp(tokens[0], "SO") == 0 && tokens[1])
 		{
-			game->texture_SO = ft_strdup(game->file[i] + 3);
-			ft_printf("*** DEBUG PRINT Nº5: %s", game->texture_SO);
+			game->texture_SO = ft_strdup(tokens[1]);
+			ft_printf("*** SO DEBUG PRINT: %s\n", game->texture_SO);
 		}
-		else if (ft_strncmp(game->file[i], "WE ", 3) == 0)
+		else if (tokens[0] && ft_strcmp(tokens[0], "WE") == 0 && tokens[1])
 		{
-			game->texture_WE = ft_strdup(game->file[i] + 3);
-			ft_printf("*** DEBUG PRINT Nº6: %s", game->texture_WE);
+			game->texture_WE = ft_strdup(tokens[1]);
+			ft_printf("*** WE DEBUG PRINT: %s\n", game->texture_WE);
 		}
-		else if (ft_strncmp(game->file[i], "EA ", 3) == 0)
+		else if (tokens[0] && ft_strcmp(tokens[0], "EA") == 0 && tokens[1])
 		{
-			game->texture_EA = ft_strdup(game->file[i] + 3);
-			ft_printf("*** DEBUG PRINT Nº7: %s", game->texture_EA);
+			game->texture_EA = ft_strdup(tokens[1]);
+			ft_printf("*** EA DEBUG PRINT: %s\n", game->texture_EA);
 		}
+		j = 0;
+		while (tokens[j])
+		{
+			free(tokens[j]);
+			j++;
+		}
+		free(tokens);
 		i++;
 	}
-	if (!game->texture_NO || !game->texture_SO
-		|| !game->texture_WE || !game->texture_EA)
+	if (!game->texture_NO || !game->texture_SO || !game->texture_WE || !game->texture_EA)
+	{
 		free_error("ERROR! MISSING SOME TEXTURE PATH...", game);
+	}
 }
 
 void	get_rgb(t_game *game)
 {
-	int i;
+	int		i;
+	int		j;
+	char	*line;
+	char	**tokens;
 
 	i = 0;
 	while (game->file[i])
 	{
-		if (ft_strncmp(game->file[i], "F ", 2) == 0)
+		line = ft_strtrim(game->file[i], " \t\n");
+		if (!line)
+			free_error("ERROR! MEMORY ALLOCATION FAILED...", game);
+		tokens = ft_split(line, ' ');
+		free(line);
+		if (!tokens)
+			free_error("ERROR! MEMORY ALLOCATION FAILED...", game);
+		if (tokens[0] && ft_strcmp(tokens[0], "F") == 0 && tokens[1])
 		{
-			game->color_F = ft_strdup(game->file[i] + 2);
-			ft_printf("*** DEBUG PRINT Nº8: %s", game->color_F);
+			game->color_F = ft_strdup(tokens[1]);
+			ft_printf("*** F DEBUG PRINT: %s\n", game->color_F);
 		}
-		else if (ft_strncmp(game->file[i], "C ", 2) == 0)
+		else if (tokens[0] && ft_strcmp(tokens[0], "C") == 0 && tokens[1])
 		{
-			game->color_C = ft_strdup(game->file[i] + 2);
-			ft_printf("*** DEBUG PRINT Nº9: %s", game->color_C);
+			game->color_C = ft_strdup(tokens[1]);
+			ft_printf("*** C DEBUG PRINT: %s\n", game->color_C);
 		}
+		j = 0;
+		while (tokens[j])
+		{
+			free(tokens[j]);
+			j++;
+		}
+		free(tokens);
 		i++;
 	}
 	if (!game->color_F || !game->color_C)
+	{
 		free_error("ERROR! MISSING SOME COLORS...", game);
+	}
 }
 
 static void	fill_map(t_game *game)
@@ -138,6 +173,8 @@ static void	fill_map(t_game *game)
 		if (size_X < max_X)
 		{
 			line = ft_calloc(max_X + 1, sizeof(char));
+			if (!line)
+				free_error("ERROR! MEMORY ALLOCATION FAILED...", game);
 			ft_memcpy(line, game->map[i], size_X);
 			ft_memset(line + size_X, ' ', max_X - size_X);
 			free(game->map[i]);
@@ -152,12 +189,14 @@ void	get_map(t_game *game)
 	int		i;
 	int		j;
 	int		map_start;
+	char	*line;
 
 	i = 0;
 	while (game->file[i])
 	{
 		j = 0;
-		while (game->file[i][j] && (game->file[i][j] == ' ' || game->file[i][j] == '\t'))
+		while (game->file[i][j]
+			&& (game->file[i][j] == ' ' || game->file[i][j] == '\t'))
 			j++;
 		if (game->file[i][j] == '1')
 			break;
@@ -170,17 +209,13 @@ void	get_map(t_game *game)
 	j = 0;
 	while (game->file[i])
 	{
-		game->map[j] = ft_strdup(game->file[i]);
+		line = ft_strtrim(game->file[i], "\n");
+		game->map[j] = ft_strdup(line);
+		free(line);
 		if (!game->map[j])
 			free_error("ERROR! MAP MEMORY ALLOCATION FAILED...", game);
 		i++;
 		j++;
 	}
 	fill_map(game);
-	i = 0;
-	while (game->map[i])
-	{
-		ft_printf("*** DEBUG PRINT Nº10: %s", game->map[i]);
-		i++;
-	}
 }

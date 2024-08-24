@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:35:05 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/24 12:32:30 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/24 14:18:42 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ int	main(int ac, char **av)
 	game = ft_calloc(1, sizeof(t_game));
 	if (!game)
 		return (0);
-	ft_printf("*** DEBUG PRINT Nº0: %s\n", av[1]);
-	parse_ext(av[1], game);
+	parse_ext(av[1]);
 	init_struct(game);
 	get_file(game, av[1]);
 	get_texture(game);
 	get_rgb(game);
 	get_map(game);
+	free_error("THE END", game);
 	return (0);
 }
 
