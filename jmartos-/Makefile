@@ -1,26 +1,26 @@
-NAME			= cub3D
+NAME			=	cub3D
 
-CFLAGS			= -Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror -g
 
-INC				= -I inc/ -I ../libft/inc/ -I ../MLX42/include/MLX42/
+INC				=	-I inc/ -I ../libft/inc/ -I ../MLX42/include/MLX42/
 
 SRC				=	src/cub3d.c \
-					src/init.c \
-					src/map.c \
-					src/free_error_exit.c
+					src/free_error_exit.c \
+					src/extension.c\
+					src/file.c
 
-OBJS 			= ${SRC:.c=.o}
+OBJS 			=	${SRC:.c=.o}
 
-LIBFT			= ../libft/libft.a
+LIBFT			=	../libft/libft.a
 
-MLX42			= ../MLX42/libmlx42.a
+MLX42			=	../MLX42/libmlx42.a
 
-BOLD			=\033[1m
-RED				=\033[31;1m
-GREEN			=\033[32;1m
-YELLOW			=\033[33;1m
-BLUE			=\033[34;1m
-NO_COLOR		=\033[0m
+BOLD			=	\033[1m
+RED				=	\033[31;1m
+GREEN			=	\033[32;1m
+YELLOW			=	\033[33;1m
+BLUE			=	\033[34;1m
+NO_COLOR		=	\033[0m
 
 ${NAME}: ${LIBFT} ${MLX42} ${OBJS}
 	@echo "${GREEN}${BOLD} GAME SUCCESSFULLY COMPILED ${NO_COLOR}"
