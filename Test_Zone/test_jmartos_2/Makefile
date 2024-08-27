@@ -2,7 +2,7 @@ NAME			= cub3D
 
 CFLAGS			= -Wall -Wextra -Werror -g
 
-INC				= -I /libft/inc/ -I /MLX42/include/MLX42/
+INC				= -I libft/inc/ -I MLX42/include/MLX42/
 
 SRC				=	cub3d.c map.c window.c
 
@@ -21,17 +21,17 @@ NO_COLOR		=\033[0m
 
 ${NAME}: ${LIBFT} ${MLX42} ${OBJS}
 	@echo "${GREEN}${BOLD} GAME SUCCESSFULLY COMPILED ${NO_COLOR}"
-	@gcc $(CFLAGS) $(INC) $(OBJS) $(MLX42) $(LIBFT) -lglfw -L -lm "/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
-	@echo "${GREEN}${BOLD} WELCOME TO "CUB3D", 42_MALAGA PROYECT FROM ${BLUE}${BOLD}JMARTOS-${NO_COLOR} ${GREEN}${BOLD}AND${NO_COLOR} ${BLUE}${BOLD}AROSAS-J${NO_COLOR} ${NO_COLOR}"
+	@gcc $(CFLAGS) $(INC) $(OBJS) $(MLX42) $(LIBFT) -L/Users/$(USER)/.brew/opt/glfw/lib/ -lglfw -lm -o $(NAME)
+	@echo "${GREEN}${BOLD} WELCOME TO \"CUB3D\", 42_MALAGA PROJECT FROM ${BLUE}${BOLD}JMARTOS-${NO_COLOR} ${GREEN}${BOLD}AND${NO_COLOR} ${BLUE}${BOLD}AROSAS-J${NO_COLOR} ${NO_COLOR}"
 
 ${LIBFT}:
 	@echo "${YELLOW}${BOLD} BUILDING LIBFT. PLEASE BE PATIENT... ${NO_COLOR}"
-	@make -C /libft/ --silent
+	@make -C libft/ --silent
 	@echo "${GREEN}${BOLD} LIBFT COMPILED ${NO_COLOR}"
 
 ${MLX42}:
 	@echo "${YELLOW}${BOLD} BUILDING MLX42. PLEASE BE PATIENT... ${NO_COLOR}"
-	@make -C /MLX42/ --silent
+	@make -C MLX42/ --silent
 	@echo "${GREEN}${BOLD} MINILIBX COMPILED ${NO_COLOR}"
 
 src/%.o: src/%.c
