@@ -6,52 +6,48 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:35:05 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/24 14:18:42 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/28 21:57:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
-void	init_struct(t_game *game)
+void	init_struct(t_game *g)
 {
-	game->mlx = NULL;
-	game->file = NULL;
-	game->file_size = 0;
-	game->texture_NO = NULL;
-	game->texture_SO = NULL;
-	game->texture_WE = NULL;
-	game->texture_EA = NULL;
-	game->color_F = NULL;
-	game->color_C = NULL;
-	game->map = NULL;
-	game->map_size_X = 0;
-	game->map_size_Y = 0;
+	g->mlx = NULL;
+	g->file = NULL;
+	g->file_size = 0;
+	g->texture_NO = NULL;
+	g->texture_SO = NULL;
+	g->texture_WE = NULL;
+	g->texture_EA = NULL;
+	g->color_F = NULL;
+	g->color_C = NULL;
+	g->map = NULL;
+	g->map_copy = NULL;
+	g->map_rows = 0;
+	g->map_columns = 0;
+	g->player_X = 0;
+	g->player_Y = 0;
+	g->player_orientation = 0;
 }
 
 int	main(int ac, char **av)
 {
-	t_game	*game;
+	t_game	*g;
 
 	if ((ac != 2) || (ac == 2 && av[1] == NULL))
 		free_error("ERROR! WRONG ARGUMENTS SINTAXIS...", NULL);
-	game = ft_calloc(1, sizeof(t_game));
-	if (!game)
+	g = ft_calloc(1, sizeof(t_game));
+	if (!g)
 		return (0);
 	parse_ext(av[1]);
-	init_struct(game);
-	get_file(game, av[1]);
-	get_texture(game);
-	get_rgb(game);
-	get_map(game);
-	free_error("THE END", game);
+	init_struct(g);
+	get_file(g, av[1]);
+	get_texture(g);
+	get_rgb(g);
+	get_map(g);
+	parse_map(g);
+	free_error("THE END", g);
 	return (0);
 }
-
-/*
-	void	*mlx_connection;
-
-	mlx_connection = mlx_init(W_MAP, H_MAP, "cub3D", false);
-	//CODIGO
-	mlx_loop(mlx_connection);
-	return (0);
-*/

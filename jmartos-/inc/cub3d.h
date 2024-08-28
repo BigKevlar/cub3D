@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:45:50 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/24 14:18:03 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/08/28 21:57:31 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ typedef struct s_game
 	char	*color_F;
 	char	*color_C;
 	char	**map;
-	int		map_size_X;
-	int		map_size_Y;
+	char	**map_copy;
+	int		map_rows;
+	int		map_columns;
+	int		player_X;
+	int		player_Y;
+	char	player_orientation;
 }	t_game;
 
 /*
@@ -49,5 +53,6 @@ void	get_file(t_game *game, char *file);
 void	get_texture(t_game *game);
 void	get_rgb(t_game *game);
 void	get_map(t_game *game);
+void	parse_map(t_game *g);
 
 #endif

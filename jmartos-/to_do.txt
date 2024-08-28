@@ -4,11 +4,24 @@ ENLACES DE INTERES:
     - https://medium.com/@rtailidounia/raycasting-in-cub3d-42-network-project-a-practical-tutorial-using-vectors-68eeb16b3de2
     - https://harm-smits.github.io/42docs/projects/cub3d
     - https://www.youtube.com/watch?v=gYRrGTC7GtA
-    -
+    - 
 
 TO_DO (jmartos-):
 
-    - comprobacion de que el mapa sea lo ultimo del documento.
-    - poner que el mapa este bien cerrado (al menos el que contiene el jugador).
-    - 
-    - 
+    Comprobaciones para el parseo: ✅ ❌​
+        
+        - Lo mas importante... nada de leaks!!!
+        - La ventana del juego tiene que redimensionar, minimizar y moverse bien.
+        - Respetar que puedas salir con la X o con la tecla ESC.
+        - Que respete bien los controles de direccion y vision.
+        - Comprobar argumentos.
+        - Comprobar la extension del mapa.
+        - Comprobar la disposicion de la informacion dentro del archivo del mapa.
+        - Que el mapa solo tenga paredes, suelo y una de las orientaciones del jugador.
+        - Que el jugador solo pueda ser representado con NO,SO,EA o WE.
+        - Que enseñe varias texturas en funcion de la vista, el subject dice que imagenes es muy recomendado.
+        - Que enseñe los colores de suelo y cielo.
+        - Que todo se guarde correctamente en la estructura
+        - Poner que el mapa este bien cerrado (al menos el que contiene el jugador).
+        - 
+        - 

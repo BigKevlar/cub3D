@@ -7,7 +7,8 @@ INC				=	-I inc/ -I ../libft/inc/ -I ../MLX42/include/MLX42/
 SRC				=	src/cub3d.c \
 					src/free_error_exit.c \
 					src/extension.c\
-					src/file.c
+					src/file.c \
+					src/flood_fill.c
 
 OBJS 			=	${SRC:.c=.o}
 
