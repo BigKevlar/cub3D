@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/02 17:54:49 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/02 20:03:37 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static bool	wall_hit(double x, double y, char **map)
 {
 	x = floor(x / TILE_SIZE);
 	y = floor(y / TILE_SIZE);
-	if (y < 0 || y >= 8 || x < 0 || x >= 26)
+	if (y < 0 || y >= 8 || x < 0 || x >= 27)
 		return (true);
 	if (map[(int)y][(int)x] == '1')
 		return (true);
@@ -40,7 +40,7 @@ static double	get_v_distance(t_game *g)
 	double	y_pos;
 
 	step_x = TILE_SIZE * sign(cos(g->ray->angle));
-	step_y = TILE_SIZE * tan(g->ray->angle);
+	step_y = TILE_SIZE * tan(g->ray->angle) * sign(cos(g->ray->angle));
 	x_pos = floor(g->ply->x / TILE_SIZE) * TILE_SIZE;
 	if (cos(g->ray->angle) >= 0)
 		x_pos += TILE_SIZE;
@@ -60,7 +60,7 @@ static double	get_h_distance(t_game *g)
 	double	x_pos;
 	double	y_pos;
 
-	step_x = TILE_SIZE / tan(g->ray->angle);
+	step_x = TILE_SIZE / tan(g->ray->angle) * sign(sin(g->ray->angle));
 	step_y = TILE_SIZE * sign(sin(g->ray->angle));
 	y_pos = floor(g->ply->y / TILE_SIZE) * TILE_SIZE;
 	if (sin(g->ray->angle) >= 0)
@@ -83,7 +83,7 @@ void	raycast(void *param)
 
 	g = param;
 	i = 0;
-	g->ray->angle = g->ply->angle + FOV / 2;
+	g->ray->angle = g->ply->angle - (FOV / 2);
 	ft_clear_window(g);
 	while (i < S_W)
 	{
@@ -93,7 +93,7 @@ void	raycast(void *param)
 			g->ray->distance = v_distance;
 		else
 			g->ray->distance = h_distance;
-		g->ray->distance = g->ray->distance * cos(g->ray->angle);
+		g->ray->distance = g->ray->distance * cos(fabs(g->ray->angle - g->ply->angle));
 		render(g, i);
 		i++;
 		g->ray->angle = g->ray->angle + FOV / S_W;

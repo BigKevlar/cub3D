@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/02 18:01:58 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:21:00 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void render(t_game *g, int i)
 	while (size > 0)
 	{
 		if (start >= 0 && start < S_H && i >= 0 && i < S_W)
-			//{printf("x: %d, y: %d\n", i, start);
 			mlx_put_pixel(g->img->window, i, start, 0xFFFFFFFF);
 		size--;
 		start++;
