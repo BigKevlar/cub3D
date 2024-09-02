@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:18:42 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/08/19 12:38:14 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:24:07 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ typedef enum	e_side
 
 typedef struct	s_player
 {
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
+	double	x;
+	double	y;
 	double	fov;
 	double	angle;
 }				t_player;
@@ -51,5 +49,12 @@ typedef struct s_ray
 	double	distance;
 	t_side	side;
 }				t_ray;
+
+typedef struct	s_game
+{
+	char		**map;
+	t_ray		ray;
+	t_player	player;
+}				t_game;
 
 #endif

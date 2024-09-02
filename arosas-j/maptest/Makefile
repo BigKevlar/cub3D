@@ -1,7 +1,7 @@
 NAME	= map
 LIBMLX	= ./MLX42
 
-HEADERS	= -I map.h -I $(LIBMLX)/include
+HEADERS	= -I map.h -I $(LIBMLX)/include -I libft/inc
 LIBGL	= -lglfw -L"/Users/arosas-j/.brew/opt/glfw/lib" -lm
 LIBS	= $(LIBGL) $(LIBMLX)/libmlx42.a
 SRCS	= game_to_window.c map.c moves.c textures.c draw_line.c

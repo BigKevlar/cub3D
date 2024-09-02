@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/08/20 14:23:45 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:22:44 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ double	get_v_distance(t_player *player, char **map, t_ray *ray)
 
 	step_x = TILE_SIZE * sign(cos(ray->angle));
 	step_y = TILE_SIZE * tan(ray->angle);
-	x_pos = floor(player->pos_x / TILE_SIZE) * TILE_SIZE;
+	x_pos = floor(player->x / TILE_SIZE) * TILE_SIZE;
 	if (cos(ray->angle) >= 0)
 		x_pos += TILE_SIZE;
-	y_pos =	player->pos_y + (x_pos - player->pos_x) * tan(ray->angle);
+	y_pos =	player->y + (x_pos - player->x) * tan(ray->angle);
 	while (!wall_hit(x_pos, y_pos, map))
 	{
 		x_pos += step_x;
 		y_pos += step_y;
 	}
-	return (sqrt(pow(x_pos - player->pos_x, 2) + pow(y_pos - player->pos_y, 2)));
+	return (sqrt(pow(x_pos - player->x, 2) + pow(y_pos - player->y, 2)));
 }
 
 double	get_h_distance(t_player *player, char **map, t_ray *ray)
@@ -61,16 +61,16 @@ double	get_h_distance(t_player *player, char **map, t_ray *ray)
 
 	step_x = TILE_SIZE / tan(ray->angle);
 	step_y = TILE_SIZE * sign(sin(ray->angle));
-	y_pos = floor(player->pos_y / TILE_SIZE) * TILE_SIZE;
+	y_pos = floor(player->y / TILE_SIZE) * TILE_SIZE;
 	if (sin(ray->angle) >= 0)
 		y_pos +=  TILE_SIZE;
-	x_pos = player->pos_x + (y_pos - player->pos_y) / tan(ray->angle);
+	x_pos = player->x + (y_pos - player->y) / tan(ray->angle);
 	while (!wall_hit(x_pos, y_pos, map))
 	{
 		x_pos += step_x;
 		y_pos += step_y;
 	}
-	return (sqrt(pow(x_pos - player->pos_x, 2) + pow(y_pos - player->pos_y, 2)));
+	return (sqrt(pow(x_pos - player->x, 2) + pow(y_pos - player->y, 2)));
 }
 
 void	raycast(t_player *player, char **map, t_ray *ray)

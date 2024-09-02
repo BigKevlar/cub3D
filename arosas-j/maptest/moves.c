@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:53:22 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/08/25 21:44:43 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:02:06 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ void	move_player(t_game *game, double move_x, double move_y)
 	new_y = 0;
 	new_x = roundf(game->x + move_x);
 	new_y = roundf(game->y + move_y);
-	game->x = new_x;
-	game->y = new_y;
+	if (new_x >= 0 && new_x <= S_W)
+		game->x = new_x;
+	if  (new_y >= 0 && new_y <= S_H)
+		game->y = new_y;
 	game->img->p_right->instances->x = game->x;
 	game->img->p_right->instances->y = game->y;
 }

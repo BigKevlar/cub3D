@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:48:07 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/08/26 17:37:47 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:10:10 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define S_H 1000
 # define MOVESPEED 4
 # define ROTATESPEED 0.05
+# define TILE_SIZE 32
 
 typedef struct s_textures
 {
