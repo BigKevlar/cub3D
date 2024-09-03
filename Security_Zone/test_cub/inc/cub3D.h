@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/02 18:55:32 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:05:01 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,19 @@ typedef struct	s_tex
 	mlx_texture_t *e;
 }				t_tex;
 
+typedef enum	e_side
+{
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST
+}				t_side;
+
 typedef struct	s_img
 {
 	mlx_image_t	*window;
 	mlx_image_t	*minimap;
+	mlx_image_t	*background;
 }				t_img;
 
 typedef struct	s_ray
@@ -45,6 +54,7 @@ typedef struct	s_ray
 	int	x;
 	int	y;
 	double	distance;
+	t_side	side;
 }				t_ray;
 
 typedef struct	s_player
@@ -89,5 +99,8 @@ void	ft_game_hook(void *param);
 void	raycast(void *param);
 void	render(t_game *g, int i);
 void ft_clear_window(t_game *g);
+int	sign(double n);
+void get_h_surface(t_game *g);
+void	get_v_surface(t_game *g);
 
 #endif

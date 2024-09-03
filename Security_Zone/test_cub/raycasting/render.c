@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/02 19:21:00 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:15:24 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ int	get_size(t_ray *ray)
 	return (size);
 }
 
+static uint32_t get_color(t_game *g)
+{
+	if (g->ray->side == NORTH)
+		return (0xFFFFFFFF);
+	if (g->ray->side == SOUTH)
+		return (0xFF0000FF);
+	if (g->ray->side == EAST)
+		return (0x0000FFFF);
+	if (g->ray->side == WEST)
+		return (0x00FF00FF);
+	return (0);
+}
+
 void ft_clear_window(t_game *g)
 {
 	mlx_delete_image(g->mlx, g->img->window);
@@ -31,16 +44,39 @@ void render(t_game *g, int i)
 {
 	int	start;
 	int	size;
+	uint32_t color;
 
 	size = 0;
 	size = get_size(g->ray);
+	if (size > S_H)
+		size = S_H;
 	start = (S_H / 2) - (size / 2);
-	
+	color = get_color(g);
 	while (size > 0)
 	{
 		if (start >= 0 && start < S_H && i >= 0 && i < S_W)
-			mlx_put_pixel(g->img->window, i, start, 0xFFFFFFFF);
+			mlx_put_pixel(g->img->window, i, start, color);
 		size--;
 		start++;
 	}
+}
+
+void	get_v_surface(t_game *g)
+{
+	if (sign(cos(g->ray->angle)) == 1)
+	{
+		g->ray->side = WEST;
+	}
+	else
+		g->ray->side = EAST;
+}
+
+void get_h_surface(t_game *g)
+{
+	if (sign(sin(g->ray->angle)) == 1)
+	{
+		g->ray->side = SOUTH;
+	}
+	else
+		g->ray->side = NORTH;
 }

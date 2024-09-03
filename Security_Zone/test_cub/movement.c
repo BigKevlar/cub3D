@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:53:22 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/02 19:10:44 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:15:36 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ static void	move_player(t_game *game, double move_x, double move_y)
 	new_y = 0;
 	new_x = roundf(game->ply->x + move_x);
 	new_y = roundf(game->ply->y + move_y);
-	if (new_x >= 0 && new_x <= S_W)
+	if (new_x >= 0 && new_x <= S_W && game->map[game->ply->y/TILE_SIZE][(new_x)/TILE_SIZE] != '1'
+		&& game->map[game->ply->y/TILE_SIZE][(new_x - 1)/TILE_SIZE] != '1')
 		game->ply->x = new_x;
-	if  (new_y >= 0 && new_y <= S_H)
+	if  (new_y >= 0 && new_y <= S_H && game->map[(new_y)/TILE_SIZE][game->ply->x/TILE_SIZE] != '1'
+		&&game->map[(new_y - 1)/TILE_SIZE][game->ply->x/TILE_SIZE] != '1')
 		game->ply->y = new_y;
 }
 
@@ -72,7 +74,7 @@ void	ft_game_hook(void *param)
 		move_y = sin(game->ply->angle) * MOVESPEED * game->ply->move_w;
 	}
 	move_player(game, move_x, move_y);
-	printf("pos x: %d pos y: %d\n", game->ply->x, game->ply->y);
+	printf("x: %d, y: %d\n", game->ply->x, game->ply->y);
 }
 
 void	ft_key_release(mlx_key_data_t keydata, t_game *game)

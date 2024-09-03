@@ -6,13 +6,13 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/02 20:03:37 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:51:19 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
-static int	sign(double n)
+int	sign(double n)
 {
 	if (n > 0)
 		return (1);
@@ -90,9 +90,15 @@ void	raycast(void *param)
 		v_distance = get_v_distance(g);
 		h_distance = get_h_distance(g);
 		if (v_distance <= h_distance)
+		{
 			g->ray->distance = v_distance;
+			get_v_surface(g);
+		}
 		else
+		{
 			g->ray->distance = h_distance;
+			get_h_surface(g);
+		}
 		g->ray->distance = g->ray->distance * cos(fabs(g->ray->angle - g->ply->angle));
 		render(g, i);
 		i++;
