@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:53:22 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 14:15:36 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:01:52 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,21 @@ void	ft_game_hook(void *param)
 		rotate_player(game, 0);
 	if (game->ply->move_d == true)
 	{
-		move_x = -sin(game->ply->angle) * MOVESPEED;
-		move_y = cos(game->ply->angle) * MOVESPEED;
+		move_x += -sin(game->ply->angle) * MOVESPEED;
+		move_y += cos(game->ply->angle) * MOVESPEED;
 	}
 	if (game->ply->move_a == true)
 	{
-		move_x = sin(game->ply->angle) * MOVESPEED;
-		move_y = -cos(game->ply->angle) * MOVESPEED;
+		move_x += sin(game->ply->angle) * MOVESPEED;
+		move_y += -cos(game->ply->angle) * MOVESPEED;
 	}
 	if (game->ply->move_w)
 	{
-		move_x = cos(game->ply->angle) * MOVESPEED * game->ply->move_w;
-		move_y = sin(game->ply->angle) * MOVESPEED * game->ply->move_w;
+		move_x += cos(game->ply->angle) * MOVESPEED * game->ply->move_w;
+		move_y += sin(game->ply->angle) * MOVESPEED * game->ply->move_w;
 	}
 	move_player(game, move_x, move_y);
-	printf("x: %d, y: %d\n", game->ply->x, game->ply->y);
+	//printf("x: %d, y: %d\n", game->ply->x, game->ply->y);
 }
 
 void	ft_key_release(mlx_key_data_t keydata, t_game *game)

@@ -6,13 +6,56 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:12:59 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 13:13:15 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:52:42 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/cub3D.h"
 
-static void	draw_background(t_game *g)
+static uint32_t apply_shadow(uint32_t color, float intensity)
+{
+    uint8_t r = (color >> 24) & 0xFF;
+    uint8_t g = (color >> 16) & 0xFF;
+    uint8_t b = (color >> 8) & 0xFF;
+    uint8_t a = color & 0xFF;
+
+    r = (uint8_t)(r * intensity);
+    g = (uint8_t)(g * intensity);
+    b = (uint8_t)(b * intensity);
+
+    return (r << 24) | (g << 16) | (b << 8) | a;
+}
+
+static void draw_background(t_game *g)
+{
+    int y;
+    int x;
+    float intensity;
+    uint32_t ceiling_color = 0xFFA500FF; // Original ceiling color
+    uint32_t floor_color = 0x000000FF;   // Original floor color
+
+    for (y = 0; y < S_H; y++)
+    {
+        // Calculate intensity based on y-coordinate
+        intensity = 1.0f - ((float)y * 2 / (float)S_H);
+
+        for (x = 0; x < S_W; x++)
+        {
+            if (y < S_H / 2)
+            {
+                // Apply shadow effect to ceiling
+                mlx_put_pixel(g->img->background, x, y, apply_shadow(ceiling_color, intensity));
+            }
+            else
+            {
+                // Apply shadow effect to floor
+                mlx_put_pixel(g->img->background, x, y, apply_shadow(floor_color, intensity));
+            }
+        }
+    }
+}
+
+/*static void	draw_background(t_game *g)
 {
 	int	y;
 	int	x;
@@ -39,7 +82,7 @@ static void	draw_background(t_game *g)
 		}
 		y++;
 	}
-}
+}*/
 
 void	run_game(t_game *g)
 {
