@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 16:38:53 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:46:43 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define S_W 1920
 # define MOVESPEED 3
 # define ROTATESPEED 0.05
-# define TILE_SIZE 64
+# define TILE_SIZE 32
 # define FOV 1.15192
 
 typedef struct	s_tex

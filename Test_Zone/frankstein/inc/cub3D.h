@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/04 13:15:07 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:22:22 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 # define S_H 1000
 # define S_W 1500
-# define MOVESPEED 4
+# define MOVESPEED 6
 # define ROTATESPEED 0.05
-# define TILE_SIZE 32
+# define TILE_SIZE 64
 # define FOV 1.1
 
 typedef struct	s_tex
@@ -104,7 +104,7 @@ typedef struct	s_game
 
 /**/
 void		free_error(char *msg, t_game *game);
-void		init_struct(t_game *game);
+void		init_data(t_game *game);
 void		parse_ext(char *av);
 void		get_file(t_game *game, char *file);
 void		get_texture(t_game *game);
@@ -112,7 +112,7 @@ void		get_rgb(t_game *game);
 void		get_map(t_game *game);
 void		parse_map(t_game *g);
 /**/
-void		init_data(t_game *game);
+void		malloc_data(t_game *game);
 void		check_args(void);
 void		run_game(t_game *game);
 void		get_images(t_game *game);

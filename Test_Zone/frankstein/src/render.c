@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 18:55:15 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:18:15 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,18 @@ void	get_v_surface(t_game *g)
 {
 	if (sign(cos(g->ray->angle)) == 1)
 	{
-		g->ray->side = WEST;
+		g->ray->side = EAST;
 	}
 	else
-		g->ray->side = EAST;
+		g->ray->side = WEST;
 }
 
 void get_h_surface(t_game *g)
 {
 	if (sign(sin(g->ray->angle)) == 1)
 	{
-		g->ray->side = SOUTH;
+		g->ray->side = NORTH;
 	}
 	else
-		g->ray->side = NORTH;
+		g->ray->side = SOUTH;
 }
