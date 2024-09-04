@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:33 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 20:19:33 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:25:55 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	parse_map(&g);
 	//
 	init_data(&g);
-	//check_inits(&g);
+	check_inits(&g);
 	run_game(&g);
 	mlx_terminate(g.mlx);
 	free_game("FIN DEL JUEGO", &g);

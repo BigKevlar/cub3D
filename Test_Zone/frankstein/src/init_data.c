@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 18:44:11 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:40:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	init_data(t_game *game)
 	game->tex = NULL;
 	game->ply = malloc(sizeof(t_player));
 	game->ray = malloc(sizeof(t_ray));
+	game->routes = malloc(sizeof(t_routes));
 	init_player(game);
 }
 
@@ -88,6 +89,6 @@ void	check_inits(t_game *g)
 		free(g->ray);
 		free(g->ply);
 		free(g->routes);
-		ft_printf("ERROR! SOMETHINGS WRONG, PLEASE TRY AGAIN...\n");
+		ft_printf("ERROR! SOMETHINGS WRONG WITH DATAS, PLEASE TRY AGAIN...\n");
 	}
 }

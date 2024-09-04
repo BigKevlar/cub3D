@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:53:22 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 16:30:39 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:41:16 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_game_hook(void *param)
 		move_y = sin(game->ply->angle) * MOVESPEED * game->ply->move_w;
 	}
 	move_player(game, move_x, move_y);
-	printf("x: %d, y: %d\n", game->ply->x, game->ply->y);
+	ft_printf("x: [%d], y: [%d]\n", game->ply->x, game->ply->y); // PLAYER POSITION IN REAL TIME!
 }
 
 void	ft_key_release(mlx_key_data_t keydata, t_game *game)

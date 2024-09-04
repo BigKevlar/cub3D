@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:34:55 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/03 17:47:32 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:37:47 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,25 +73,13 @@ void	get_texture(t_game *g)
 		if (!tokens)
 			free_error("ERROR! MEMORY ALLOCATION FAILED...", g);
 		if (tokens[0] && ft_strcmp(tokens[0], "NO") == 0 && tokens[1])
-		{
 			g->texture_NO = ft_strdup(tokens[1]);
-			ft_printf("*** NO DEBUG PRINT: %s\n", g->texture_NO);
-		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "SO") == 0 && tokens[1])
-		{
 			g->texture_SO = ft_strdup(tokens[1]);
-			ft_printf("*** SO DEBUG PRINT: %s\n", g->texture_SO);
-		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "WE") == 0 && tokens[1])
-		{
 			g->texture_WE = ft_strdup(tokens[1]);
-			ft_printf("*** WE DEBUG PRINT: %s\n", g->texture_WE);
-		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "EA") == 0 && tokens[1])
-		{
 			g->texture_EA = ft_strdup(tokens[1]);
-			ft_printf("*** EA DEBUG PRINT: %s\n", g->texture_EA);
-		}
 		j = 0;
 		while (tokens[j])
 		{
@@ -102,9 +90,7 @@ void	get_texture(t_game *g)
 		i++;
 	}
 	if (!g->texture_NO || !g->texture_SO || !g->texture_WE || !g->texture_EA)
-	{
 		free_error("ERROR! MISSING SOME TEXTURE PATH...", g);
-	}
 }
 
 void	get_rgb(t_game *g)
@@ -125,15 +111,9 @@ void	get_rgb(t_game *g)
 		if (!tokens)
 			free_error("ERROR! MEMORY ALLOCATION FAILED...", g);
 		if (tokens[0] && ft_strcmp(tokens[0], "F") == 0 && tokens[1])
-		{
 			g->color_F = ft_strdup(tokens[1]);
-			ft_printf("*** F DEBUG PRINT: %s\n", g->color_F);
-		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "C") == 0 && tokens[1])
-		{
 			g->color_C = ft_strdup(tokens[1]);
-			ft_printf("*** C DEBUG PRINT: %s\n", g->color_C);
-		}
 		j = 0;
 		while (tokens[j])
 		{
@@ -180,7 +160,6 @@ static void	fill_map(t_game *g)
 			free(g->map[i]);
 			g->map[i] = line;
 		}
-		ft_printf("%s\n", g->map[i]); // BORRAR FT_PRINTF, SOLO PARA MOSTRAR EL MAPA POR CONSOLA!
 		i++;
 	}
 }
@@ -216,7 +195,6 @@ void	get_map(t_game *g)
 		g->map[j] = ft_strdup(line);
 		g->map_copy[j] = ft_strdup(line);
 		free(line);
-		ft_printf("%s\n", g->map[j]); // BORRAR FT_PRINTF, SOLO PARA MOSTRAR LA COPIA DEL MAPA POR CONSOLA
 		if ((int)ft_strlen(g->file[i]) > g->map_columns)
 			g->map_columns = ft_strlen(g->file[i]);
 		if (!g->map[j] || !g->map_copy[j])

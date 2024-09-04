@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 19:28:01 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:15:07 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct	s_game
 	int		player_X;//OK
 	int		player_Y;//OK
 	char	player_orientation;//OK
-	//
+	/**/
 	mlx_t		*mlx;
 	t_tex		*tex;
 	t_img		*img;
@@ -102,32 +102,33 @@ typedef struct	s_game
 	t_routes	*routes;
 }				t_game;
 
-void	free_error(char *msg, t_game *game);
-void	init_struct(t_game *game);
-void	parse_ext(char *av);
-void	get_file(t_game *game, char *file);
-void	get_texture(t_game *game);
-void	get_rgb(t_game *game);
-void	get_map(t_game *game);
-void	parse_map(t_game *g);
-//
-void	init_data(t_game *game);
-void	check_args(void);
-void	run_game(t_game *game);
-void	get_images(t_game *game);
-void	rotate_player(t_game *game, int i);
-void	init_player(t_game *g);
-void	ft_key_release(mlx_key_data_t keydata, t_game *game);
-void	ft_key_hook(mlx_key_data_t keydata, void *param);
-void	ft_game_hook(void *param);
-void	raycast(void *param);
-void	render(t_game *g, int i);
-void	ft_clear_window(t_game *g);
-int		sign(double n);
-void	get_h_surface(t_game *g);
-void	get_v_surface(t_game *g);
+/**/
+void		free_error(char *msg, t_game *game);
+void		init_struct(t_game *game);
+void		parse_ext(char *av);
+void		get_file(t_game *game, char *file);
+void		get_texture(t_game *game);
+void		get_rgb(t_game *game);
+void		get_map(t_game *game);
+void		parse_map(t_game *g);
+/**/
+void		init_data(t_game *game);
+void		check_args(void);
+void		run_game(t_game *game);
+void		get_images(t_game *game);
+void		rotate_player(t_game *game, int i);
+void		init_player(t_game *g);
+void		ft_key_release(mlx_key_data_t keydata, t_game *game);
+void		ft_key_hook(mlx_key_data_t keydata, void *param);
+void		ft_game_hook(void *param);
+void		raycast(void *param);
+void		render(t_game *g, int i);
+void		ft_clear_window(t_game *g);
+int			sign(double n);
+void		get_h_surface(t_game *g);
+void		get_v_surface(t_game *g);
 uint32_t	interpretate_color (char *color);
-void	check_inits(t_game *g);
-void	free_game(char *msg, t_game *g);
+void		check_inits(t_game *g);
+void		free_game(char *msg, t_game *g);
 
 #endif

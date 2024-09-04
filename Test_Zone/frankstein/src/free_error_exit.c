@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:50:53 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/03 20:20:52 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:34:18 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	free_game(char *msg, t_game *g)
 	free(g->img);
 	free(g->ray);
 	free(g->ply);
-	//free(g->routes);
+	free(g->routes);
 }

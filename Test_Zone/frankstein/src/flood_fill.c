@@ -6,13 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 00:08:34 by jmartos           #+#    #+#             */
-/*   Updated: 2024/09/03 16:40:43 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:39:39 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
-static void print_map_copy(t_game *g)
+static void print_map_copy(t_game *g) // DEBUG FT_PRINTF.
 {
 	int i;
 
@@ -41,9 +41,7 @@ static void player_position(t_game *g)
 			{
 				g->player_Y = c1;
 				g->player_X = c2;
-				ft_printf("PLAYER_POSITION: posición del jugador = [%d][%d]\n", g->player_X, g->player_Y);
 				g->player_orientation = g->map_copy[g->player_Y][g->player_X];
-				ft_printf("PLAYER_POSITION: player_orientation = %c\n", g->player_orientation);
 				g->map_copy[g->player_Y][g->player_X] = '0';
 				return;
 			}
@@ -79,17 +77,10 @@ void parse_map(t_game *g)
 	int j;
 
 	player_position(g);
-	ft_printf("PARSE_MAP: g->map_rows = %i:\n", g->map_rows);
-	ft_printf("PARSE_MAP: g->map_columns = %i:\n", g->map_columns);
-	ft_printf("PARSE_MAP: Mapa antes de flood_fill:\n");
-	print_map_copy(g);
+	//print_map_copy(g);
 	if (flood_fill(g, g->player_X, g->player_Y))
-		free_error("ERROR_1! MAP HAS OPEN AREA...", g);
-	ft_printf("PARSE_MAP: g->map_rows = %i:\n", g->map_rows);
-	ft_printf("PARSE_MAP: g->map_columns = %i:\n", g->map_columns);
-	ft_printf("PARSE_MAP: Mapa después de flood_fill:\n");
+		free_error("ERROR! MAP HAS OPEN AREA...", g);
 	print_map_copy(g);
-	// ENCONTRAR 0 Y HACER FLOOD_FILL
 	i = 0;
 	while (g->map_copy[i])
 	{
@@ -98,10 +89,10 @@ void parse_map(t_game *g)
 		{
 			if (g->map_copy[i][j] == '0')
 				if (flood_fill(g, j, i))
-					free_error("ERROR_2! MAP HAS OPEN AREA...", g);
+					free_error("ERROR! MAP HAS OPEN AREA...", g);
 			j++;
 		}
 		i++;
 	}
-	ft_printf("PARSE_MAP: el jugador y el mapa estan cerrados. Todo OK!\n");
+	ft_printf("PARSE MAP OK!\n"); // DEBUG FT_PRINTF.
 }
