@@ -6,12 +6,12 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 00:08:34 by jmartos           #+#    #+#             */
-/*   Updated: 2024/09/04 13:39:39 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/05 18:28:03 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
-
+/*
 static void print_map_copy(t_game *g) // DEBUG FT_PRINTF.
 {
 	int i;
@@ -24,7 +24,7 @@ static void print_map_copy(t_game *g) // DEBUG FT_PRINTF.
 	}
 	ft_printf("\n");
 }
-
+*/
 //
 static void player_position(t_game *g)
 {
@@ -56,8 +56,8 @@ static int flood_fill(t_game *g, int x, int y)
 {
 	//ft_printf("test\n");
 	if (x < 0 || y < 0 || y > g->map_rows || x > g->map_columns 
-		|| (g->map_copy[y][x] != '1' && g->map_copy[y][x] != 'X'
-		&& g->map_copy[y][x] != '0'))
+		|| (g->map_copy[y][x] != '1' && g->map_copy[y][x] != '2' 
+		&& g->map_copy[y][x] != 'X'	&& g->map_copy[y][x] != '0'))
 			return (1);
 	if (g->map_copy[y][x] == '1' || g->map_copy[y][x] == 'X')
 			return (0);
@@ -77,10 +77,10 @@ void parse_map(t_game *g)
 	int j;
 
 	player_position(g);
-	//print_map_copy(g);
+	//print_map_copy(g); // DEBUG FT_PRINTF.
 	if (flood_fill(g, g->player_X, g->player_Y))
 		free_error("ERROR! MAP HAS OPEN AREA...", g);
-	print_map_copy(g);
+	//print_map_copy(g); // DEBUG FT_PRINTF.
 	i = 0;
 	while (g->map_copy[i])
 	{
@@ -94,5 +94,5 @@ void parse_map(t_game *g)
 		}
 		i++;
 	}
-	ft_printf("PARSE MAP OK!\n"); // DEBUG FT_PRINTF.
+	//ft_printf("PARSE MAP OK!\n"); // DEBUG FT_PRINTF.
 }

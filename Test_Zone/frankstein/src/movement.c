@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:53:22 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/04 14:24:31 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/05 17:24:05 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ void	ft_game_hook(void *param)
 		move_y += sin(game->ply->angle) * MOVESPEED * game->ply->move_w;
 	}
 	move_player(game, move_x, move_y);
-	//ft_printf("x: [%d], y: [%d]\n", game->ply->x, game->ply->y); // PLAYER POSITION IN REAL TIME!
-	printf("Angulo: %f\n", game->ply->angle);
 }
 
 void	ft_key_release(mlx_key_data_t keydata, t_game *game)
