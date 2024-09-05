@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 16:41:06 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:46:36 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	init_player(t_game *g)
 	g->ply->rotate = 0;
 	g->ply->x = 12 * TILE_SIZE;
 	g->ply->y = 3 * TILE_SIZE;
+	g->ratio = S_H * TILE_SIZE;
 }
 
 void	init_data(t_game *game)
@@ -49,5 +50,6 @@ void	init_data(t_game *game)
 	game->ply = malloc(sizeof(t_player));
 	game->ray = malloc(sizeof(t_ray));
 	game->map = get_map();
+	get_textures(game);
 	init_player(game);
 }

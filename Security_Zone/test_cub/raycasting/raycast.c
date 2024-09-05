@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 13:51:19 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/05 19:55:43 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static double	get_v_distance(t_game *g)
 		x_pos += step_x;
 		y_pos += step_y;
 	}
+	g->ray->x = x_pos;
+	g->ray->y = y_pos;
 	return (sqrt(pow(x_pos - g->ply->x, 2) + pow(y_pos - g->ply->y, 2)));
 }
 
@@ -71,6 +73,8 @@ static double	get_h_distance(t_game *g)
 		x_pos += step_x;
 		y_pos += step_y;
 	}
+	g->ray->x2 = x_pos;
+	g->ray->y2 = y_pos;
 	return (sqrt(pow(x_pos - g->ply->x, 2) + pow(y_pos - g->ply->y, 2)));
 }
 
@@ -80,8 +84,10 @@ void	raycast(void *param)
 	double	v_distance;
 	double	h_distance;
 	t_game	*g;
+	double increment;
 
 	g = param;
+	increment = FOV / S_W;
 	i = 0;
 	g->ray->angle = g->ply->angle - (FOV / 2);
 	ft_clear_window(g);
@@ -98,10 +104,12 @@ void	raycast(void *param)
 		{
 			g->ray->distance = h_distance;
 			get_h_surface(g);
+			g->ray->x = g->ray->x2;
+			g->ray->y = g->ray->y2;
 		}
 		g->ray->distance = g->ray->distance * cos(fabs(g->ray->angle - g->ply->angle));
 		render(g, i);
 		i++;
-		g->ray->angle = g->ray->angle + FOV / S_W;
+		g->ray->angle = g->ray->angle + increment;
 	}
 }
