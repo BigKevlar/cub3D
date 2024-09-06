@@ -1,6 +1,6 @@
 NAME			=	cub3D
 
-CFLAGS			=	-Wall -Wextra -Werror -g -fPIE
+CFLAGS			=	-Wall -Wextra -g -fPIE
 
 INC				=	-I inc/ -I libft/inc/ -I MLX42/include/MLX42/ 
 

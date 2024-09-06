@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:06:29 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:46:49 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	malloc_data(t_game *game) //cuidado con esta
 {
 	game->ply = malloc(sizeof(t_player));
 	game->ray = malloc(sizeof(t_ray));
-	game->routes = malloc(sizeof(t_routes));
 	game->tex = malloc(sizeof(t_tex));
 	game->img = ft_calloc(1, sizeof(t_img));
+	init_textures(game);
 	init_player(game);
 }
 
@@ -93,7 +93,7 @@ void	check_inits(t_game *g)
 	if (!g->file
 		|| !g->texture_NO || !g->texture_SO || !g->texture_WE || !g->texture_EA
 		|| !g->color_F || !g->color_C || !g->map || !g->map_copy
-		|| !g->tex || !g->img || !g->ray || !g->ply || !g->routes)
+		|| !g->tex || !g->img || !g->ray || !g->ply)
 	{
 		ft_printf("ERROR! SOMETHINGS WRONG WITH DATAS, PLEASE TRY AGAIN...\n");
 		ft_strd_free(g->file);
@@ -109,6 +109,5 @@ void	check_inits(t_game *g)
 		free(g->img);
 		free(g->ray);
 		free(g->ply);
-		free(g->routes);
 	}
 }

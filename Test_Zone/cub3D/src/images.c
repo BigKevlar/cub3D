@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:57:36 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:15:33 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:24:43 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,16 @@ static void	free_textures(t_tex *textures)
 	free(textures);
 }
 
-void	get_textures(t_game *game)
+void	init_textures(t_game *game)
 {
-	game->routes->n = game->texture_NO;
-	game->routes->s = game->texture_SO;
-	game->routes->e = game->texture_WE;
-	game->routes->w = game->texture_EA;
 	game->tex = ft_calloc(1, sizeof(t_tex));
-	game->tex->n = mlx_load_png(game->routes->n);
-	game->tex->s = mlx_load_png(game->routes->s);
-	game->tex->e = mlx_load_png(game->routes->e);
-	game->tex->w = mlx_load_png(game->routes->w);
+	game->tex->n = mlx_load_png(game->texture_NO);
+	game->tex->s = mlx_load_png(game->texture_SO);
+	game->tex->e = mlx_load_png(game->texture_WE);
+	game->tex->w = mlx_load_png(game->texture_EA);
+	if (!game->tex->w || !game->tex->s || !game->tex->e || !game->tex->w)
+		free_error("ERROR! LOADING TEXTURES FAIL.\n", game);
+	game->tex->door = mlx_load_png("tex/Door.png");
 }
 
 void	get_images(t_game *game)

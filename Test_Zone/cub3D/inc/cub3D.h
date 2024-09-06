@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:13:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:09:25 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@
 
 typedef struct	s_tex
 {
-	mlx_texture_t *n;
-	mlx_texture_t *s;
-	mlx_texture_t *w;
-	mlx_texture_t *e;
+	mlx_texture_t	*n;
+	mlx_texture_t	*s;
+	mlx_texture_t	*w;
+	mlx_texture_t	*e;
+	mlx_texture_t	*door;
 }	t_tex;
 
 typedef enum	e_side
@@ -59,6 +60,8 @@ typedef struct	s_ray
 	mlx_texture_t	*tex;
 	double			distance;
 	t_side			side;
+	bool	door_h;
+	bool	door_v;
 }	t_ray;
 
 typedef struct	s_player
@@ -71,14 +74,6 @@ typedef struct	s_player
 	bool	move_d;
 	int		rotate;
 }	t_player;
-
-typedef struct	s_routes
-{
-	char	*n;
-	char	*s;
-	char	*e;
-	char	*w;
-}	t_routes;
 
 typedef struct	s_game
 {
@@ -124,14 +119,13 @@ typedef struct	s_game
 	t_img			*img;
 	t_ray			*ray;
 	t_player		*ply;
-	t_routes		*routes;
 }	t_game;
 
 void		free_error(char *msg, t_game *game);
 void		init_data(t_game *game);
 void		parse_ext(char *av);
 void		get_file(t_game *game, char *file);
-void		get_texture(t_game *game);
+void		get_textures(t_game *game);
 void		get_rgb(t_game *game);
 void		get_map(t_game *game);
 void		parse_map(t_game *g);
@@ -151,7 +145,7 @@ int			sign(double n);
 void		get_h_surface(t_game *g);
 void		get_v_surface(t_game *g);
 uint32_t	get_pixel_color(t_game *g, int	size, int tex_colum);
-void		get_textures(t_game *game);
+void		init_textures(t_game *game);
 double		get_colum(t_game *g);
 uint32_t	interpretate_color (char *color);
 void		check_inits(t_game *g);

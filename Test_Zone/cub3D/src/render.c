@@ -6,25 +6,12 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:21:38 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:11:27 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
-/*
-static uint32_t get_color(t_game *g)
-{
-	if (g->ray->side == NORTH)
-		return (0xFFFFFFFF);
-	if (g->ray->side == SOUTH)
-		return (0xFF0000FF);
-	if (g->ray->side == EAST)
-		return (0x0000FFFF);
-	if (g->ray->side == WEST)
-		return (0x00FF00FF);
-	return (0);
-}
-*/
+
 int	get_size(t_ray *ray)
 {
 	int	size;
@@ -82,6 +69,8 @@ void	get_v_surface(t_game *g)
 		g->ray->side = WEST;
 		g->ray->tex = g->tex->w;
 	}
+	if (g->ray->door_v)
+		g->ray->tex = g->tex->door;
 }
 
 void get_h_surface(t_game *g)
@@ -96,4 +85,6 @@ void get_h_surface(t_game *g)
 		g->ray->side = SOUTH;
 		g->ray->tex = g->tex->s;
 	}
+	if (g->ray->door_v)
+		g->ray->tex = g->tex->door;
 }

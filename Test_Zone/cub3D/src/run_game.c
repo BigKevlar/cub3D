@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:12:59 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:17:24 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 13:26:12 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void draw_background(t_game *g)
     int y;
     int x;
     //float intensity;
-    uint32_t ceiling_color = 0xFF0000FF; // Original ceiling color
-    uint32_t floor_color = 0x000FF00FF;   // Original floor color
+    uint32_t ceiling_color = interpretate_color(g->color_C); // Original ceiling color
+    uint32_t floor_color = interpretate_color(g->color_F);   // Original floor color
 
     for (y = 0; y < S_H; y++)
     {
@@ -49,7 +49,9 @@ void	run_game(t_game *g)
 	g->img->window = mlx_new_image(g->mlx, S_W, S_H);
 	mlx_image_to_window(g->mlx, g->img->window, 0, 0);
 	mlx_image_to_window(g->mlx, g->img->background, 0, 0);
-	draw_background(g);
+	load_torch_textures(g);
+    draw_background(g);
+    g->img->background->instances->z = 0;
 	mlx_key_hook(g->mlx, &ft_key_hook, g);
 	mlx_loop_hook(g->mlx, &ft_game_hook, g);
 	mlx_loop_hook(g->mlx, &raycast, g);

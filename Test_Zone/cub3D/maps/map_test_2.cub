@@ -1,10 +1,10 @@
-NO                     textures/wall_1.png
-SO textures/wall_2.png
-WE          		textures/wall_2.png
+NO                     tex/Wall.png
+SO tex/Wall.png
+WE          		tex/Wall.png
 
 
 
-EA textures/wall_1.png
+EA		        tex/Wall.png
 
 F 			66,70,50
 
@@ -16,7 +16,7 @@ C 81,209,246
      10000001       1000001
  111100000001       1000001
 100000000000011111110000001
-100000000000020000000000001              2
+100000000000020000000000001              1
 10000000000001100001111111              101
 1000001000001  1001                      1
  11111111111    11

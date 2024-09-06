@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:34:55 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/04 21:02:50 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:33:54 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	get_file(t_game *g, char *file)
 	close(fd);
 }
 
-void	get_texture(t_game *g)
+void	get_textures(t_game *g)
 {
 	int		i;
 	int		j;
@@ -89,9 +89,12 @@ void	get_texture(t_game *g)
 		free(tokens);
 		i++;
 	}
+	printf("%s\n", g->texture_NO);
+	printf("%s\n", g->texture_SO);
+	printf("%s\n", g->texture_WE);
+	printf("%s\n", g->texture_EA);
 	if (!g->texture_NO || !g->texture_SO || !g->texture_WE || !g->texture_EA)
 		free_error("ERROR! MISSING SOME TEXTURE PATH...", g);
-	// CHEQUEAMOS LAS TEXTURAS???
 }
 
 void	get_rgb(t_game *g)
