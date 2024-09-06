@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:34:55 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/04 13:37:47 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/04 21:02:50 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	get_texture(t_game *g)
 	}
 	if (!g->texture_NO || !g->texture_SO || !g->texture_WE || !g->texture_EA)
 		free_error("ERROR! MISSING SOME TEXTURE PATH...", g);
+	// CHEQUEAMOS LAS TEXTURAS???
 }
 
 void	get_rgb(t_game *g)

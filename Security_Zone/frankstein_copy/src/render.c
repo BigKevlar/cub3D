@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/04 14:18:15 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/05 16:37:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	get_size(t_ray *ray)
 static uint32_t get_color(t_game *g)
 {
 	if (g->ray->side == NORTH)
-		return (0xFFFFFFFF); // WARNING!!!!!!!!!!!!
+		return (0xFFFFFFFF);
 	if (g->ray->side == SOUTH)
-		return (0xFF0000FF); // WARNING!!!!!!!!!!!!
+		return (0xFF0000FF);
 	if (g->ray->side == EAST)
-		return (0x0000FFFF); // WARNING!!!!!!!!!!!!
+		return (0x0000FFFF);
 	if (g->ray->side == WEST)
-		return (0x00FF00FF); // WARNING!!!!!!!!!!!!
+		return (0x00FF00FF);
 	return (0);
 }
 
@@ -38,6 +38,7 @@ void ft_clear_window(t_game *g)
 	mlx_delete_image(g->mlx, g->img->window);
 	g->img->window = mlx_new_image(g->mlx, S_W, S_H);
 	mlx_image_to_window(g->mlx, g->img->window, 0, 0);
+	//draw_torch(g);
 }
 
 void render(t_game *g, int i)

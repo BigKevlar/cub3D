@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/05 18:25:14 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:05:33 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	init_data(t_game *g)
 	g->t_image05 = NULL;
 	g->t_image06 = NULL;
 	g->t_image07 = NULL;
+	g->torch_image = NULL;
 	g->torch_animation_speed = 6;
     g->actual_torch_frame = 0;
 	g->torch_frame_counter = 0;

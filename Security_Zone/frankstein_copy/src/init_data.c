@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/04 14:04:31 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:05:33 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	init_data(t_game *g)
 	g->texture_WE = NULL;
 	g->texture_EA = NULL;
 	g->color_F = NULL;
-	g->color_C = NULL;	
+	g->color_C = NULL;
 	g->map = NULL;
 	g->map_copy = NULL;
 	g->map_rows = 0;
@@ -63,14 +63,35 @@ void	init_data(t_game *g)
 	g->player_X = 0;
 	g->player_Y = 0;
 	g->player_orientation = 0;
+	g->t_texture00 = NULL;
+    g->t_texture01 = NULL;
+    g->t_texture02 = NULL;
+    g->t_texture03 = NULL;
+    g->t_texture04 = NULL;
+    g->t_texture05 = NULL;
+    g->t_texture06 = NULL;
+    g->t_texture07 = NULL;
+	g->torch_image = NULL;
+	g->t_image00 = NULL;
+	g->t_image01 = NULL;
+	g->t_image02 = NULL;
+	g->t_image03 = NULL;
+	g->t_image04 = NULL;
+	g->t_image05 = NULL;
+	g->t_image06 = NULL;
+	g->t_image07 = NULL;
+	g->torch_image = NULL;
+	g->torch_animation_speed = 6;
+    g->actual_torch_frame = 0;
+	g->torch_frame_counter = 0;
 }
-
 
 void	check_inits(t_game *g)
 {
-	if (!g->file || !g->texture_NO || !g->texture_SO
-		|| !g->texture_WE || !g->texture_EA || !g->color_F || !g->color_C
-		|| !g->map || !g->map_copy || !g->tex || !g->img || !g->ray || !g->ply || !g->routes)
+	if (!g->file
+		|| !g->texture_NO || !g->texture_SO || !g->texture_WE || !g->texture_EA
+		|| !g->color_F || !g->color_C || !g->map || !g->map_copy
+		|| !g->tex || !g->img || !g->ray || !g->ply || !g->routes)
 	{
 		ft_printf("ERROR! SOMETHINGS WRONG WITH DATAS, PLEASE TRY AGAIN...\n");
 		ft_strd_free(g->file);

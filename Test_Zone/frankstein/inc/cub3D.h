@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/05 17:13:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:05:15 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ typedef struct	s_game
     mlx_texture_t	*t_texture05;
     mlx_texture_t	*t_texture06;
     mlx_texture_t	*t_texture07;
-	mlx_image_t 	*torch_image;
+	mlx_texture_t 	*torch_texture;
 	mlx_image_t		*t_image00;
     mlx_image_t		*t_image01;
     mlx_image_t		*t_image02;
@@ -111,6 +111,7 @@ typedef struct	s_game
     mlx_image_t		*t_image05;
     mlx_image_t		*t_image06;
     mlx_image_t		*t_image07;
+	mlx_image_t		*torch_image;
 	int		torch_animation_speed;
 	int		actual_torch_frame;
 	int		torch_frame_counter;

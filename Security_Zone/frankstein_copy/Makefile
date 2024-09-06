@@ -14,7 +14,8 @@ SRC				=	src/main.c \
 					src/free_error_exit.c \
 					src/extension.c\
 					src/file.c \
-					src/flood_fill.c
+					src/flood_fill.c \
+					src/animation.c
 
 OBJS 			=	${SRC:.c=.o}
 
@@ -33,15 +34,11 @@ MAGENTA			=	\033[35;1m
 CYAN			=	\033[36;1m
 NO_COLOR		=	\033[0m
 
-${NAME}: START_MSG ${LIBFT} ${MLX42} ${OBJS}
+${NAME}: ${LIBFT} ${MLX42} ${OBJS}
 	@echo "${YELLOW}${BOLD}BUILDING GAME. PLEASE BE PATIENT... ${NO_COLOR}"
 	@gcc $(CFLAGS) $(INC) $(OBJS) $(MLX42) $(LIBFT) -L/Users/$(USER)/.brew/opt/glfw/lib/ -lglfw -lm -o $(NAME)
 	@echo "${GREEN}${BOLD}GAME COMPILED! ${NO_COLOR}"
 	@echo "${CYAN}${BOLD}How to play? Enter ./cub3D <map> and enjoy!!! ${NO_COLOR}"
-
-START_MSG:
-	@echo "${BLUE}${BOLD}WELCOME TO ${MAGENTA}${BOLD}CUB3D${NO_COLOR}${BLUE}${BOLD}, 42_MALAGA PROYECT FROM ${MAGENTA}${BOLD}JMARTOS-${NO_COLOR} ${BLUE}${BOLD}AND${NO_COLOR} ${MAGENTA}${BOLD}AROSAS-J${NO_COLOR} ${NO_COLOR}"
-	@touch ${START_MSG}
 
 ${LIBFT}:
 	@echo "${YELLOW}${BOLD}BUILDING LIBFT. PLEASE BE PATIENT... ${NO_COLOR}"
@@ -53,10 +50,14 @@ ${MLX42}:
 	@make -C MLX42/ --silent
 	@echo "${GREEN}${BOLD}MINILIBX COMPILED! ${NO_COLOR}"
 
+START_MSG:
+	@echo "${BLUE}${BOLD}WELCOME TO ${MAGENTA}${BOLD}CUB3D${NO_COLOR}${BLUE}${BOLD}, 42_MALAGA PROYECT FROM ${MAGENTA}${BOLD}JMARTOS-${NO_COLOR} ${BLUE}${BOLD}AND${NO_COLOR} ${MAGENTA}${BOLD}AROSAS-J${NO_COLOR} ${NO_COLOR}"
+	@touch ${START_MSG}
+
 src/%.o: src/%.c
 	@gcc ${CFLAGS} ${INC} -c $< -o src/$(@F)
 
-all: ${NAME}
+all: START_MSG ${NAME}
 
 clean:
 	@rm -rf ${OBJS}

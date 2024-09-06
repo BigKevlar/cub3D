@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/04 14:22:22 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:05:15 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 # include <math.h>
 # include <limits.h>
+# include <unistd.h> // usleep()
 
 # define S_H 1000
 # define S_W 1500
@@ -93,6 +94,27 @@ typedef struct	s_game
 	int		player_X;//OK
 	int		player_Y;//OK
 	char	player_orientation;//OK
+	mlx_texture_t	*t_texture00;
+    mlx_texture_t	*t_texture01;
+    mlx_texture_t	*t_texture02;
+    mlx_texture_t	*t_texture03;
+    mlx_texture_t	*t_texture04;
+    mlx_texture_t	*t_texture05;
+    mlx_texture_t	*t_texture06;
+    mlx_texture_t	*t_texture07;
+	mlx_texture_t 	*torch_texture;
+	mlx_image_t		*t_image00;
+    mlx_image_t		*t_image01;
+    mlx_image_t		*t_image02;
+    mlx_image_t		*t_image03;
+    mlx_image_t		*t_image04;
+    mlx_image_t		*t_image05;
+    mlx_image_t		*t_image06;
+    mlx_image_t		*t_image07;
+	mlx_image_t		*torch_image;
+	int		torch_animation_speed;
+	int		actual_torch_frame;
+	int		torch_frame_counter;
 	/**/
 	mlx_t		*mlx;
 	t_tex		*tex;
@@ -130,5 +152,7 @@ void		get_v_surface(t_game *g);
 uint32_t	interpretate_color (char *color);
 void		check_inits(t_game *g);
 void		free_game(char *msg, t_game *g);
+void		load_torch_textures(t_game *g);
+void		draw_torch(t_game *g);
 
 #endif

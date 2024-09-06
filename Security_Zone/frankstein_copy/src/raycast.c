@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/03 16:57:57 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/05 17:54:43 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static bool	wall_hit(t_game *g, double x, double y)
 	y = floor(y / TILE_SIZE);
 	if (y < 0 || y >= g->map_rows || x < 0 || x >= g->map_columns)
 		return (true);
-	if (g->map[(int)y][(int)x] == '1')
+	if (g->map[(int)y][(int)x] == '1' || g->map[(int)y][(int)x] == '2')
 		return (true);
 	return (false);
 }
@@ -104,4 +104,6 @@ void	raycast(void *param)
 		i++;
 		g->ray->angle = g->ray->angle + FOV / S_W;
 	}
+	g->img->window->instances->z = 1;
+	draw_torch(g);
 }
