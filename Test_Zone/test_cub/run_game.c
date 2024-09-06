@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:12:59 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 08:19:41 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:15:01 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static void draw_background(t_game *g)
     int y;
     int x;
     //float intensity;
-    uint32_t ceiling_color = 0x000000FF; // Original ceiling color
-    uint32_t floor_color = 0x000000FF;   // Original floor color
+    uint32_t ceiling_color = 0xFF0000FF; // Original ceiling color
+    uint32_t floor_color = 0x000FF00FF;   // Original floor color
 
     for (y = 0; y < S_H; y++)
     {
@@ -92,7 +92,7 @@ void	run_game(t_game *g)
 	g->img->window = mlx_new_image(g->mlx, S_W, S_H);
 	mlx_image_to_window(g->mlx, g->img->window, 0, 0);
 	mlx_image_to_window(g->mlx, g->img->background, 0, 0);
-	//draw_background(g);
+	draw_background(g);
 	mlx_key_hook(g->mlx, &ft_key_hook, g);
 	mlx_loop_hook(g->mlx, &ft_game_hook, g);
 	mlx_loop_hook(g->mlx, &raycast, g);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 10:21:36 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:38:41 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,27 @@ void render(t_game *g, int i)
 	int	size;
 	uint32_t color;
 	int	j;
+	int	tex_colum;
 
-	size = 0;
 	j = 0;
 	size = get_size(g->ray);
-	//if (size > S_H) //Arreglar para que dibuje bien
-	//	size = S_H;
+	tex_colum = get_colum(g);
+	if (size > S_H)
+	{
+		j = (size - S_H) / 2;
+		size = S_H;
+	}
 	start = (S_H - size) / 2;
+	size += j;
 	while (j < size)
 	{
 		if (start >= 0 && start < S_H &&  i < S_W)
 		{
-			color = get_pixel_color(g, j);
+			color = get_pixel_color(g, j, tex_colum);
 			mlx_put_pixel(g->img->window, i, start, color);
 		}
 		j++;
-		start++;		
+		start++;
 	}
 }
 

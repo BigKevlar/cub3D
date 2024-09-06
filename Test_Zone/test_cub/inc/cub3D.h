@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 09:04:22 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 10:46:44 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <math.h>
 # include <limits.h>
 
-# define S_H 1080
-# define S_W 1920
+# define S_H 768
+# define S_W 1024
 # define MOVESPEED 2
 # define ROTATESPEED 0.05
 # define TILE_SIZE 32
@@ -106,7 +106,8 @@ void	ft_clear_window(t_game *g);
 int		sign(double n);
 void	get_h_surface(t_game *g);
 void	get_v_surface(t_game *g);
-uint32_t	get_pixel_color(t_game *g, int	size);
+uint32_t	get_pixel_color(t_game *g, int	size, int tex_colum);
 void	get_textures(t_game *game);
+double	get_colum(t_game *g);
 
 #endif
