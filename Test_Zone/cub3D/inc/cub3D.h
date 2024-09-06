@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 14:09:25 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 19:38:59 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,9 +125,10 @@ void		free_error(char *msg, t_game *game);
 void		init_data(t_game *game);
 void		parse_ext(char *av);
 void		get_file(t_game *game, char *file);
-void		get_textures(t_game *game);
-void		get_rgb(t_game *game);
-void		get_map(t_game *game);
+void		choose_tex_color(t_game *g);
+int			get_textures(t_game *game, int index);
+int			get_rgb(t_game *game, int index);
+void		get_map(t_game *game, int index);
 void		parse_map(t_game *g);
 void		malloc_data(t_game *game);
 void		check_args(void);
@@ -147,10 +148,12 @@ void		get_v_surface(t_game *g);
 uint32_t	get_pixel_color(t_game *g, int	size, int tex_colum);
 void		init_textures(t_game *game);
 double		get_colum(t_game *g);
-uint32_t	interpretate_color (char *color);
+uint32_t	interpretate_color (t_game *g, char *color);
 void		check_inits(t_game *g);
 void		free_game(char *msg, t_game *g);
 void		load_torch_textures(t_game *g);
 void		draw_torch(t_game *g);
+void		player_position(t_game *g);
+void	check_close(t_game *g);
 
 #endif

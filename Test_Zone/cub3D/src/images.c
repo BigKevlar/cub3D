@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:57:36 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 14:24:43 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:08:56 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,26 @@ static uint32_t rgb_to_uint32(uint8_t r, uint8_t g, uint8_t b)
     return color;
 }
 
-uint32_t	interpretate_color (char *color)
+static int check_comas(char *rgb)
+{
+	int	comas;
+	int i;
+	
+	i = 0;
+	comas = 0;
+	while (rgb[i])
+	{
+		if (rgb[i] == ',')
+			comas++;
+		i++;
+	}
+	if (comas == 2)
+		return (1);
+	else
+		return (0);
+}
+
+uint32_t	interpretate_color (t_game *g, char *color)
 {
 	char	**RGB;
 	int		red;
@@ -54,11 +73,16 @@ uint32_t	interpretate_color (char *color)
 	int		blue;
 	int		i;
 	
+	if (!check_comas(color))
+		free_error("ERROR! COLORS FAIL.\n", g);
 	RGB = ft_split(color, ',');
-	red = ft_atoi(RGB[0]);
-	green = ft_atoi(RGB[1]);
-	blue = ft_atoi(RGB[2]);
-	
+	if(ft_isdigit_str(RGB[0]) && RGB[0])
+		red = ft_atoi(RGB[0]);
+	if(ft_isdigit_str(RGB[1]))
+		green = ft_atoi(RGB[1]);
+	if(ft_isdigit_str(RGB[2]))
+		blue = ft_atoi(RGB[2]);
+		
 	i = 0;
 	while (RGB[i])
 	{

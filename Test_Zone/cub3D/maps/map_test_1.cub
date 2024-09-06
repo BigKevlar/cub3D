@@ -1,10 +1,10 @@
+F 66,70,50
+C 81,209,246
+
 NO tex/Wall.png
 SO tex/Wall.png
 WE tex/Wall.png
 EA tex/Wall.png
-
-F 66,70,50
-C 81,209,246
 
  11111111111111 
 1000000000000001

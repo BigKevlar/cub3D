@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:12:59 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 13:26:12 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:02:56 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void draw_background(t_game *g)
     int y;
     int x;
     //float intensity;
-    uint32_t ceiling_color = interpretate_color(g->color_C); // Original ceiling color
-    uint32_t floor_color = interpretate_color(g->color_F);   // Original floor color
+    uint32_t ceiling_color = interpretate_color(g, g->color_C); // Original ceiling color
+    uint32_t floor_color = interpretate_color(g, g->color_F);   // Original floor color
 
     for (y = 0; y < S_H; y++)
     {

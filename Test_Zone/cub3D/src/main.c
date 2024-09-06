@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:33 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:47:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 19:39:15 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main(int ac, char **av)
 	parse_ext(av[1]);
 	init_data(&g);
 	get_file(&g, av[1]);
-	get_textures(&g);
-	get_rgb(&g);
-	get_map(&g);
-	parse_map(&g);
+	choose_tex_color(&g);
+	player_position(&g);
+	check_close(&g);
+	//parse_map(&g);
 	//
 	malloc_data(&g);
 	check_inits(&g);
