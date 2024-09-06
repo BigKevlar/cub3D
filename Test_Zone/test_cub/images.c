@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:57:36 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 10:49:07 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:23:07 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	get_textures(t_game *game)
 	game->tex->s = mlx_load_png("Textures/Mona_Lisa.png");
 	game->tex->e = mlx_load_png("Textures/Mona_Lisa.png");
 	game->tex->w = mlx_load_png("Textures/Mona_Lisa.png");
+	game->tex->door = mlx_load_png("Textures/Wall2.png");
 }
 
 double	get_colum(t_game *g)

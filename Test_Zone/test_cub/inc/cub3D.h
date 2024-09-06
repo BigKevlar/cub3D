@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 10:46:44 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:21:02 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@
 
 typedef struct	s_tex
 {
-	mlx_texture_t *n;
-	mlx_texture_t *s;
-	mlx_texture_t *w;
-	mlx_texture_t *e;
+	mlx_texture_t	*n;
+	mlx_texture_t	*s;
+	mlx_texture_t	*w;
+	mlx_texture_t	*e;
+	mlx_texture_t	*door;
 }				t_tex;
 
 typedef enum	e_side
@@ -58,6 +59,8 @@ typedef struct	s_ray
 	mlx_texture_t	*tex;
 	double	distance;
 	t_side	side;
+	bool	door_h;
+	bool	door_v;
 }				t_ray;
 
 typedef struct	s_player

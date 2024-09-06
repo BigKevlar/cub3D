@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 11:38:41 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:22:31 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ void	get_v_surface(t_game *g)
 		g->ray->side = WEST;
 		g->ray->tex = g->tex->w;
 	}
+	if (g->ray->door_v)
+		g->ray->tex = g->tex->door;
 }
 
 void get_h_surface(t_game *g)
@@ -134,4 +136,6 @@ void get_h_surface(t_game *g)
 		g->ray->side = SOUTH;
 		g->ray->tex = g->tex->s;
 	}
+	if (g->ray->door_v)
+		g->ray->tex = g->tex->door;
 }

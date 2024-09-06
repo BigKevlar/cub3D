@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 09:03:58 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:24:56 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,28 @@ int	sign(double n)
 	return (0);
 }
 
-static bool	wall_hit(double x, double y, char **map)
+static bool	wall_hit(double x, double y, t_game *g, char flag)
 {
 	x = floor(x / TILE_SIZE);
 	y = floor(y / TILE_SIZE);
 	if (y < 0 || y >= 8 || x < 0 || x >= 27)
 		return (true);
-	if (map[(int)y][(int)x] == '1')
+	if (g->map[(int)y][(int)x] == '1')
+	{
+		if (flag == 'v')
+			g->ray->door_v = false;
+		else
+			g->ray->door_h = false;
 		return (true);
+	}
+	if (g->map[(int)y][(int)x] == '2')
+	{
+		if (flag == 'v')
+			g->ray->door_v = true;
+		else
+			g->ray->door_h = true;
+		return (true);
+	}
 	return (false);
 }
 
@@ -45,7 +59,7 @@ static double	get_v_distance(t_game *g)
 	if (cos(g->ray->angle) >= 0)
 		x_pos += TILE_SIZE;
 	y_pos =	g->ply->y + (x_pos - g->ply->x) * tan(g->ray->angle);
-	while (!wall_hit(x_pos + sign(cos(g->ray->angle)), y_pos, g->map)) //ojo con el sign(cos)
+	while (!wall_hit(x_pos + sign(cos(g->ray->angle)), y_pos, g, 'v')) //ojo con el sign(cos)
 	{
 		x_pos += step_x;
 		y_pos += step_y;
@@ -68,7 +82,7 @@ static double	get_h_distance(t_game *g)
 	if (sin(g->ray->angle) >= 0)
 		y_pos +=  TILE_SIZE;
 	x_pos = g->ply->x + (y_pos - g->ply->y) / tan(g->ray->angle);
-	while (!wall_hit(x_pos, y_pos + sign(sin(g->ray->angle)), g->map)) //ojo con el sign(sin)
+	while (!wall_hit(x_pos, y_pos + sign(sin(g->ray->angle)), g, 'h')) //ojo con el sign(sin)
 	{
 		x_pos += step_x;
 		y_pos += step_y;
@@ -103,6 +117,7 @@ void	raycast(void *param)
 		else
 		{
 			g->ray->distance = h_distance;
+			g->ray->door_v = g->ray->door_h;
 			get_h_surface(g);
 			g->ray->x = g->ray->x2;
 			g->ray->y = g->ray->y2;
