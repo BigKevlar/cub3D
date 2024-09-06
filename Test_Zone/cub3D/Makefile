@@ -6,7 +6,8 @@ INC				=	-I inc/ -I libft/inc/ -I MLX42/include/MLX42/
 
 SRC				=	src/main.c \
 					src/init_data.c \
-					src/images.c \
+					src/images1.c \
+					src/images2.c \
 					src/movement.c \
 					src/run_game.c \
 					src/raycast.c \
@@ -15,7 +16,8 @@ SRC				=	src/main.c \
 					src/extension.c\
 					src/file.c \
 					src/flood_fill.c \
-					src/animation.c
+					src/animation.c \
+					src/map.c
 
 OBJS 			=	${SRC:.c=.o}
 

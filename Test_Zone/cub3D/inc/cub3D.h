@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 19:38:59 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 20:36:40 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define TILE_SIZE 32
 # define FOV 1.15192
 
-typedef struct	s_tex
+typedef struct s_tex
 {
 	mlx_texture_t	*n;
 	mlx_texture_t	*s;
@@ -35,7 +35,7 @@ typedef struct	s_tex
 	mlx_texture_t	*door;
 }	t_tex;
 
-typedef enum	e_side
+typedef enum e_side
 {
 	NORTH,
 	SOUTH,
@@ -43,14 +43,14 @@ typedef enum	e_side
 	EAST
 }	t_side;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	mlx_image_t	*window;
 	mlx_image_t	*minimap;
 	mlx_image_t	*background;
 }	t_img;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	double			angle;
 	double			x;
@@ -60,11 +60,11 @@ typedef struct	s_ray
 	mlx_texture_t	*tex;
 	double			distance;
 	t_side			side;
-	bool	door_h;
-	bool	door_v;
+	bool			door_h;
+	bool			door_v;
 }	t_ray;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	int		x;
 	int		y;
@@ -75,7 +75,7 @@ typedef struct	s_player
 	int		rotate;
 }	t_player;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	char			**file;
 	int				file_size;
@@ -93,24 +93,24 @@ typedef struct	s_game
 	int				player_Y;
 	char			player_orientation;
 	int				ratio;
-	mlx_texture_t	*t_texture00;
-    mlx_texture_t	*t_texture01;
-    mlx_texture_t	*t_texture02;
-    mlx_texture_t	*t_texture03;
-    mlx_texture_t	*t_texture04;
-    mlx_texture_t	*t_texture05;
-    mlx_texture_t	*t_texture06;
-    mlx_texture_t	*t_texture07;
-	mlx_texture_t 	*torch_texture;
+	mlx_texture_t	*t_tex00;
+	mlx_texture_t	*t_tex01;
+	mlx_texture_t	*t_tex02;
+	mlx_texture_t	*t_tex03;
+	mlx_texture_t	*t_tex04;
+	mlx_texture_t	*t_tex05;
+	mlx_texture_t	*t_tex06;
+	mlx_texture_t	*t_tex07;
+	mlx_texture_t	*torch_tex;
 	mlx_image_t		*t_image00;
-    mlx_image_t		*t_image01;
-    mlx_image_t		*t_image02;
-    mlx_image_t		*t_image03;
-    mlx_image_t		*t_image04;
-    mlx_image_t		*t_image05;
-    mlx_image_t		*t_image06;
-    mlx_image_t		*t_image07;
-	mlx_image_t		*torch_image;
+	mlx_image_t		*t_image01;
+	mlx_image_t		*t_image02;
+	mlx_image_t		*t_image03;
+	mlx_image_t		*t_image04;
+	mlx_image_t		*t_image05;
+	mlx_image_t		*t_image06;
+	mlx_image_t		*t_image07;
+	mlx_image_t		*torch_img;
 	int				torch_animation_speed;
 	int				actual_torch_frame;
 	int				torch_frame_counter;
@@ -145,15 +145,16 @@ void		ft_clear_window(t_game *g);
 int			sign(double n);
 void		get_h_surface(t_game *g);
 void		get_v_surface(t_game *g);
-uint32_t	get_pixel_color(t_game *g, int	size, int tex_colum);
+uint32_t	get_pixel_color(t_game *g, int size, int tex_colum);
 void		init_textures(t_game *game);
 double		get_colum(t_game *g);
-uint32_t	interpretate_color (t_game *g, char *color);
+uint32_t	interpretate_color(t_game *g, char *color);
 void		check_inits(t_game *g);
 void		free_game(char *msg, t_game *g);
 void		load_torch_textures(t_game *g);
 void		draw_torch(t_game *g);
 void		player_position(t_game *g);
-void	check_close(t_game *g);
+void		check_close(t_game *g);
+int			check_comas(char *rgb);
 
 #endif

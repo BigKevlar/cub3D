@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:46:49 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/06 20:21:28 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ void	init_data(t_game *g)
 	g->player_X = 0;
 	g->player_Y = 0;
 	g->player_orientation = 0;
-	g->t_texture00 = NULL;
-    g->t_texture01 = NULL;
-    g->t_texture02 = NULL;
-    g->t_texture03 = NULL;
-    g->t_texture04 = NULL;
-    g->t_texture05 = NULL;
-    g->t_texture06 = NULL;
-    g->t_texture07 = NULL;
-	g->torch_image = NULL;
+	g->t_tex00 = NULL;
+    g->t_tex01 = NULL;
+    g->t_tex02 = NULL;
+    g->t_tex03 = NULL;
+    g->t_tex04 = NULL;
+    g->t_tex05 = NULL;
+    g->t_tex06 = NULL;
+    g->t_tex07 = NULL;
+	g->torch_tex = NULL;
 	g->t_image00 = NULL;
 	g->t_image01 = NULL;
 	g->t_image02 = NULL;
@@ -82,7 +82,7 @@ void	init_data(t_game *g)
 	g->t_image05 = NULL;
 	g->t_image06 = NULL;
 	g->t_image07 = NULL;
-	g->torch_image = NULL;
+	g->torch_img = NULL;
 	g->torch_animation_speed = 6;
     g->actual_torch_frame = 0;
 	g->torch_frame_counter = 0;
