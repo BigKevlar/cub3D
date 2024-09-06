@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 12:21:02 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/06 20:34:18 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define S_H 768
 # define S_W 1024
-# define MOVESPEED 2
+# define MOVESPEED 3
 # define ROTATESPEED 0.05
 # define TILE_SIZE 32
 # define FOV 1.15192
