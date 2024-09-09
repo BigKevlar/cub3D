@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 16:54:27 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 21:58:47 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ typedef struct s_player
 	bool	move_a;
 	bool	move_d;
 	int		rotate;
+	int		mouse_x;
+	int		mouse_y;
 }	t_player;
 
 typedef struct s_game
@@ -120,6 +122,13 @@ typedef struct s_game
 	t_player		*ply;
 }	t_game;
 
+/* get_textures.c  */
+int			get_textures(t_game *g, int i);
+/* get_colors.c  */
+int			get_colors(t_game *g, int i);
+/* file.c */
+void		tokenizing(t_game *g, char **texture, char **tokens, int *flag);
+/**/
 void		free_error(char *msg, t_game *g);
 void		init_data_1(t_game *g);
 void		init_data_2(t_game *g);

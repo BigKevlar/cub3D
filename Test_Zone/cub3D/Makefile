@@ -8,6 +8,8 @@ SRC				=	src/main.c \
 					src/init_data.c \
 					src/images1.c \
 					src/images2.c \
+					src/get_textures.c \
+					src/get_colors.c \
 					src/movement.c \
 					src/run_game.c \
 					src/raycast.c \

@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:12:59 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 17:45:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 21:07:26 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ static void	draw_background(t_game *g)
 }
 
 /**/
+void	ft_mouse_hook(void *param)
+{
+	t_game	*g;
+
+	g = param;
+	mlx_get_mouse_pos(g->mlx, &g->ply->mouse_x, &g->ply->mouse_y);
+	g->ply->angle += ((float)(g->ply->mouse_x - (S_W / 2)) / (S_H / 2) * 0.4);
+	mlx_set_mouse_pos(g->mlx, (S_W / 2), (S_H / 2));
+}
+
+/**/
 void	run_game(t_game *g)
 {
 	g->mlx = mlx_init(S_W, S_H, "cub3D", true);
@@ -53,6 +64,8 @@ void	run_game(t_game *g)
 	mlx_key_hook(g->mlx, &ft_key_hook, g);
 	mlx_loop_hook(g->mlx, &ft_game_hook, g);
 	mlx_loop_hook(g->mlx, &raycast, g);
+	mlx_set_cursor_mode(g->mlx, MLX_MOUSE_DISABLED);
+	mlx_cursor_hook(g->mlx, (void *)ft_mouse_hook, g);
 	mlx_loop(g->mlx);
 	mlx_close_window(g->mlx);
 }
