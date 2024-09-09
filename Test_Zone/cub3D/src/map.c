@@ -6,72 +6,17 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 20:18:05 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 19:02:44 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 22:56:39 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
 /**/
-void	map_orientation(t_game *g)
-{
-	if (g->player_orientation == 'N')
-		g->ply->angle = 3 * (M_PI / 2);
-	else if (g->player_orientation == 'S')
-		g->ply->angle = M_PI / 2;
-	else if (g->player_orientation == 'E')
-		g->ply->angle = 0;
-	else if (g->player_orientation == 'S')
-		g->ply->angle = M_PI;
-}
-
-/**/
-double	get_colum(t_game *g)
-{
-	double	colum;
-
-	colum = 0;
-	if (g->ray->side == SOUTH)
-	{
-		g->ray->x = fmod(g->ray->x, TILE_SIZE);
-		colum = g->ray->x;
-	}
-	else if (g->ray->side == NORTH)
-	{
-		g->ray->x = fmod(g->ray->x, TILE_SIZE);
-		colum = TILE_SIZE - g->ray->x;
-	}
-	else if (g->ray->side == WEST)
-	{
-		g->ray->y = fmod(g->ray->y, TILE_SIZE);
-		colum = TILE_SIZE - g->ray->y;
-	}
-	else if (g->ray->side == EAST)
-	{
-		g->ray->y = fmod(g->ray->y, TILE_SIZE);
-		colum = g->ray->y;
-	}
-	return ((colum * g->ray->tex->width));
-}
-
-/**/
-static void	fill_map(t_game *g)
+static void	filling(t_game *g, char *line, int max_x, int size_x)
 {
 	int		i;
-	int		max_x;
-	int		size_x;
-	char	*line;
 
-	i = 0;
-	max_x = 0;
-	size_x = 0;
-	while (g->map[i])
-	{
-		size_x = ft_strlen(g->map[i]);
-		if (size_x > max_x)
-			max_x = size_x;
-		i++;
-	}
 	i = 0;
 	while (g->map[i])
 	{
@@ -88,6 +33,28 @@ static void	fill_map(t_game *g)
 		}
 		i++;
 	}
+}
+
+/**/
+static void	fill_map(t_game *g)
+{
+	int		i;
+	int		max_x;
+	int		size_x;
+	char	*line;
+
+	i = 0;
+	max_x = 0;
+	size_x = 0;
+	line = NULL;
+	while (g->map[i])
+	{
+		size_x = ft_strlen(g->map[i]);
+		if (size_x > max_x)
+			max_x = size_x;
+		i++;
+	}
+	filling(g, line, max_x, size_x);
 }
 
 /**/

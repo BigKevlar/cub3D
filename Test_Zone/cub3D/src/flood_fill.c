@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 00:08:34 by jmartos           #+#    #+#             */
-/*   Updated: 2024/09/09 17:05:50 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 22:47:31 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,48 @@ void	player_position(t_game *g)
 		}
 		c1++;
 	}
+}
+
+/**/
+void	map_orientation(t_game *g)
+{
+	if (g->player_orientation == 'N')
+		g->ply->angle = 3 * (M_PI / 2);
+	else if (g->player_orientation == 'S')
+		g->ply->angle = M_PI / 2;
+	else if (g->player_orientation == 'E')
+		g->ply->angle = 0;
+	else if (g->player_orientation == 'S')
+		g->ply->angle = M_PI;
+}
+
+/**/
+double	get_colum(t_game *g)
+{
+	double	colum;
+
+	colum = 0;
+	if (g->ray->side == SOUTH)
+	{
+		g->ray->x = fmod(g->ray->x, TILE_SIZE);
+		colum = g->ray->x;
+	}
+	else if (g->ray->side == NORTH)
+	{
+		g->ray->x = fmod(g->ray->x, TILE_SIZE);
+		colum = TILE_SIZE - g->ray->x;
+	}
+	else if (g->ray->side == WEST)
+	{
+		g->ray->y = fmod(g->ray->y, TILE_SIZE);
+		colum = TILE_SIZE - g->ray->y;
+	}
+	else if (g->ray->side == EAST)
+	{
+		g->ray->y = fmod(g->ray->y, TILE_SIZE);
+		colum = g->ray->y;
+	}
+	return ((colum * g->ray->tex->width));
 }
 
 /**/

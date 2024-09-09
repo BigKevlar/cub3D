@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 22:42:57 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 23:13:06 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ void		get_tex_color(t_game *g);
 void		tokenizing(t_game *g, char **texture, char **tokens, int *flag);
 /* flood_fill.c */
 void		player_position(t_game *g);
+void		map_orientation(t_game *g);
+double		get_colum(t_game *g);
 void		check_map(t_game *g);
 /* free_error_exit.c */
 void		free_error(char *msg, t_game *g);
@@ -153,28 +155,23 @@ void		init_data_1(t_game *g);
 void		init_data_2(t_game *g);
 void		check_inits(t_game *g);
 /* map.c */
-/**/
-void		get_file(t_game *g, char *file);
-void		get_tex_color(t_game *g);
-int			get_textures(t_game *g, int index);
-int			get_rgb(t_game *g, int index);
 void		get_map(t_game *g, int index);
-void		parse_map(t_game *g);
-void		check_args(void);
-void		run_game(t_game *g);
-void		get_images(t_game *g);
+/* movements.c */
 void		rotate_player(t_game *g, int i);
-void		init_player(t_game *g);
+void		ft_game_hook(void *param);
 void		ft_key_release(mlx_key_data_t keydata, t_game *g);
 void		ft_key_hook(mlx_key_data_t keydata, void *param);
-void		ft_game_hook(void *param);
-void		raycast(void *param);
-void		render(t_game *g, int i);
-void		ft_clear_window(t_game *g);
+/* raycast.c */
 int			sign(double n);
+void		raycast(void *param);
+/* render.c */
+int			get_size(t_ray *ray);
+void		ft_clear_window(t_game *g);
+void		render(t_game *g, int i);
 void		get_h_surface(t_game *g);
 void		get_v_surface(t_game *g);
-double		get_colum(t_game *g);
-void		map_orientation(t_game *g);
+/* run_game.c*/
+void		ft_mouse_hook(void *param);
+void		run_game(t_game *g);
 
 #endif
