@@ -6,14 +6,14 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:50:53 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 17:47:37 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 22:27:32 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
 /**/
-void	continue_free(t_game *g)
+static void	continue_free(t_game *g)
 {
 	free (g->t_tex00);
 	free (g->t_tex01);
