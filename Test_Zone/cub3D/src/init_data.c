@@ -6,73 +6,67 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 20:21:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:18:26 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
-void	map_orientation(t_game *g)
-{
-	if (g->player_orientation == 'N')
-		g->ply->angle = 3 * (M_PI / 2);
-	else if (g->player_orientation == 'S')
-		g->ply->angle = M_PI / 2;
-	else if (g->player_orientation == 'E')
-		g->ply->angle = 0;
-	else if (g->player_orientation == 'S')
-		g->ply->angle = M_PI;
-}
-
+/**/
 void	init_player(t_game *g)
 {
-	map_orientation(g);
-	g->ply->angle = M_PI;
 	g->ply->move_a = false;
 	g->ply->move_d = false;
 	g->ply->move_w = 0;
 	g->ply->rotate = 0;
-	g->ply->x = g->player_X * TILE_SIZE;
-	g->ply->y = g->player_Y * TILE_SIZE;
+	g->ply->x = g->player_x * TILE_SIZE;
+	g->ply->y = g->player_y * TILE_SIZE;
 	g->ratio = S_H * TILE_SIZE;
 }
 
-void	malloc_data(t_game *game) //cuidado con esta
+/**/
+void	malloc_data(t_game *g) //cuidado con esta
 {
-	game->ply = malloc(sizeof(t_player));
-	game->ray = malloc(sizeof(t_ray));
-	game->tex = malloc(sizeof(t_tex));
-	game->img = ft_calloc(1, sizeof(t_img));
-	init_textures(game);
-	init_player(game);
+	g->ply = malloc(sizeof(t_player));
+	g->ray = malloc(sizeof(t_ray));
+	g->tex = malloc(sizeof(t_tex));
+	g->img = malloc(sizeof(t_img));
+	map_orientation(g);
+	init_textures(g);
+	init_player(g);
 }
 
-void	init_data(t_game *g)
+/**/
+void	init_data_1(t_game *g)
 {
 	g->mlx = NULL;
 	g->file = NULL;
 	g->file_size = 0;
-	g->texture_NO = NULL;
-	g->texture_SO = NULL;
-	g->texture_WE = NULL;
-	g->texture_EA = NULL;
-	g->color_F = NULL;
-	g->color_C = NULL;
+	g->texture_no = NULL;
+	g->texture_so = NULL;
+	g->texture_we = NULL;
+	g->texture_ea = NULL;
+	g->color_f = NULL;
+	g->color_c = NULL;
 	g->map = NULL;
-	g->map_copy = NULL;
 	g->map_rows = 0;
 	g->map_columns = 0;
-	g->player_X = 0;
-	g->player_Y = 0;
+	g->player_x = 0;
+	g->player_y = 0;
 	g->player_orientation = 0;
+}
+
+/**/
+void	init_data_2(t_game *g)
+{
 	g->t_tex00 = NULL;
-    g->t_tex01 = NULL;
-    g->t_tex02 = NULL;
-    g->t_tex03 = NULL;
-    g->t_tex04 = NULL;
-    g->t_tex05 = NULL;
-    g->t_tex06 = NULL;
-    g->t_tex07 = NULL;
+	g->t_tex01 = NULL;
+	g->t_tex02 = NULL;
+	g->t_tex03 = NULL;
+	g->t_tex04 = NULL;
+	g->t_tex05 = NULL;
+	g->t_tex06 = NULL;
+	g->t_tex07 = NULL;
 	g->torch_tex = NULL;
 	g->t_image00 = NULL;
 	g->t_image01 = NULL;
@@ -84,27 +78,31 @@ void	init_data(t_game *g)
 	g->t_image07 = NULL;
 	g->torch_img = NULL;
 	g->torch_animation_speed = 6;
-    g->actual_torch_frame = 0;
+	g->actual_torch_frame = 0;
 	g->torch_frame_counter = 0;
+	g->tex = NULL;
+	g->img = NULL;
+	g->ray = NULL;
+	g->ply = NULL;
 }
 
+/**/
 void	check_inits(t_game *g)
 {
 	if (!g->file
-		|| !g->texture_NO || !g->texture_SO || !g->texture_WE || !g->texture_EA
-		|| !g->color_F || !g->color_C || !g->map || !g->map_copy
+		|| !g->texture_no || !g->texture_so || !g->texture_we || !g->texture_ea
+		|| !g->color_f || !g->color_c || !g->map
 		|| !g->tex || !g->img || !g->ray || !g->ply)
 	{
 		ft_printf("ERROR! SOMETHINGS WRONG WITH DATAS, PLEASE TRY AGAIN...\n");
 		ft_strd_free(g->file);
-		free(g->texture_NO);
-		free(g->texture_SO);
-		free(g->texture_WE);
-		free(g->texture_EA);
-		free(g->color_F);
-		free(g->color_C);
+		free(g->texture_no);
+		free(g->texture_so);
+		free(g->texture_we);
+		free(g->texture_ea);
+		free(g->color_f);
+		free(g->color_c);
 		ft_strd_free(g->map);
-		ft_strd_free(g->map_copy);
 		free(g->tex);
 		free(g->img);
 		free(g->ray);

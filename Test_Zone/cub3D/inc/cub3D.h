@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 20:36:40 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:54:27 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,20 @@ typedef struct s_player
 
 typedef struct s_game
 {
+	mlx_t			*mlx;
 	char			**file;
 	int				file_size;
-	char			*texture_NO;
-	char			*texture_SO;
-	char			*texture_WE;
-	char			*texture_EA;
-	char			*color_F;
-	char			*color_C;
+	char			*texture_no;
+	char			*texture_so;
+	char			*texture_we;
+	char			*texture_ea;
+	char			*color_f;
+	char			*color_c;
 	char			**map;
-	char			**map_copy;
 	int				map_rows;
 	int				map_columns;
-	int				player_X;
-	int				player_Y;
+	int				player_x;
+	int				player_y;
 	char			player_orientation;
 	int				ratio;
 	mlx_texture_t	*t_tex00;
@@ -114,29 +114,29 @@ typedef struct s_game
 	int				torch_animation_speed;
 	int				actual_torch_frame;
 	int				torch_frame_counter;
-	mlx_t			*mlx;
 	t_tex			*tex;
 	t_img			*img;
 	t_ray			*ray;
 	t_player		*ply;
 }	t_game;
 
-void		free_error(char *msg, t_game *game);
-void		init_data(t_game *game);
+void		free_error(char *msg, t_game *g);
+void		init_data_1(t_game *g);
+void		init_data_2(t_game *g);
 void		parse_ext(char *av);
-void		get_file(t_game *game, char *file);
-void		choose_tex_color(t_game *g);
-int			get_textures(t_game *game, int index);
-int			get_rgb(t_game *game, int index);
-void		get_map(t_game *game, int index);
+void		get_file(t_game *g, char *file);
+void		get_tex_color(t_game *g);
+int			get_textures(t_game *g, int index);
+int			get_rgb(t_game *g, int index);
+void		get_map(t_game *g, int index);
 void		parse_map(t_game *g);
-void		malloc_data(t_game *game);
+void		malloc_data(t_game *g);
 void		check_args(void);
-void		run_game(t_game *game);
-void		get_images(t_game *game);
-void		rotate_player(t_game *game, int i);
+void		run_game(t_game *g);
+void		get_images(t_game *g);
+void		rotate_player(t_game *g, int i);
 void		init_player(t_game *g);
-void		ft_key_release(mlx_key_data_t keydata, t_game *game);
+void		ft_key_release(mlx_key_data_t keydata, t_game *g);
 void		ft_key_hook(mlx_key_data_t keydata, void *param);
 void		ft_game_hook(void *param);
 void		raycast(void *param);
@@ -146,15 +146,16 @@ int			sign(double n);
 void		get_h_surface(t_game *g);
 void		get_v_surface(t_game *g);
 uint32_t	get_pixel_color(t_game *g, int size, int tex_colum);
-void		init_textures(t_game *game);
+void		init_textures(t_game *g);
 double		get_colum(t_game *g);
 uint32_t	interpretate_color(t_game *g, char *color);
 void		check_inits(t_game *g);
-void		free_game(char *msg, t_game *g);
+void		win_game(char *msg, t_game *g);
 void		load_torch_textures(t_game *g);
 void		draw_torch(t_game *g);
 void		player_position(t_game *g);
-void		check_close(t_game *g);
+void		check_map(t_game *g);
 int			check_comas(char *rgb);
+void		map_orientation(t_game *g);
 
 #endif

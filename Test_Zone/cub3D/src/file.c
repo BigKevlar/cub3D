@@ -6,12 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:34:55 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/06 20:18:28 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:48:30 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
+/**/
 static void	file_size(t_game *g, char *file)
 {
 	int		fd;
@@ -31,6 +32,7 @@ static void	file_size(t_game *g, char *file)
 	close(fd);
 }
 
+/**/
 void	get_file(t_game *g, char *file)
 {
 	int		fd;
@@ -55,7 +57,8 @@ void	get_file(t_game *g, char *file)
 	close(fd);
 }
 
-void	choose_tex_color(t_game *g)
+/**/
+void	get_tex_color(t_game *g)
 {
 	int	i;
 
@@ -75,6 +78,7 @@ void	choose_tex_color(t_game *g)
 	get_map(g, i);
 }
 
+/**/
 int	get_textures(t_game *g, int i)
 {
 	int		j;
@@ -96,30 +100,30 @@ int	get_textures(t_game *g, int i)
 			free_error("ERROR! MEMORY ALLOCATION FAILED...", g);
 		if (tokens[0] && ft_strcmp(tokens[0], "NO") == 0 && tokens[1])
 		{
-			if (g->texture_NO)
+			if (g->texture_no)
 				free_error("ERROR! DUPLICATE TEXTURE IN FILE...", g);
-			g->texture_NO = ft_strdup(tokens[1]);
+			g->texture_no = ft_strdup(tokens[1]);
 			flag++;
 		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "SO") == 0 && tokens[1])
 		{
-			if (g->texture_SO)
+			if (g->texture_so)
 				free_error("ERROR! DUPLICATE TEXTURE IN FILE...", g);
-			g->texture_SO = ft_strdup(tokens[1]);
+			g->texture_so = ft_strdup(tokens[1]);
 			flag++;
 		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "WE") == 0 && tokens[1])
 		{
-			if (g->texture_WE)
+			if (g->texture_we)
 				free_error("ERROR! DUPLICATE TEXTURE IN FILE...", g);
-			g->texture_WE = ft_strdup(tokens[1]);
+			g->texture_we = ft_strdup(tokens[1]);
 			flag++;
 		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "EA") == 0 && tokens[1])
 		{
-			if (g->texture_EA)
+			if (g->texture_ea)
 				free_error("ERROR! DUPLICATE TEXTURE IN FILE...", g);
-			g->texture_EA = ft_strdup(tokens[1]);
+			g->texture_ea = ft_strdup(tokens[1]);
 			flag++;
 		}
 		else
@@ -130,11 +134,12 @@ int	get_textures(t_game *g, int i)
 		free(tokens);
 		i++;
 	}
-	if (!g->texture_NO || !g->texture_SO || !g->texture_WE || !g->texture_EA)
+	if (!g->texture_no || !g->texture_so || !g->texture_we || !g->texture_ea)
 		free_error("ERROR! MISSING SOME TEXTURE PATH...", g);
 	return (i);
 }
 
+/**/
 int	get_rgb(t_game *g, int i)
 {
 	int		j;
@@ -156,16 +161,16 @@ int	get_rgb(t_game *g, int i)
 			free_error("ERROR! MEMORY ALLOCATION FAILED...", g);
 		if (tokens[0] && ft_strcmp(tokens[0], "F") == 0 && tokens[1])
 		{
-			if (g->color_F)
+			if (g->color_f)
 				free_error("ERROR! DUPLICATE COLOR IN FILE...", g);
-			g->color_F = ft_strdup(tokens[1]);
+			g->color_f = ft_strdup(tokens[1]);
 			flag++;
 		}
 		else if (tokens[0] && ft_strcmp(tokens[0], "C") == 0 && tokens[1])
 		{
-			if (g->color_C)
+			if (g->color_c)
 				free_error("ERROR! DUPLICATE COLOR IN FILE...", g);
-			g->color_C = ft_strdup(tokens[1]);
+			g->color_c = ft_strdup(tokens[1]);
 			flag++;
 		}
 		else
@@ -176,7 +181,7 @@ int	get_rgb(t_game *g, int i)
 		free(tokens);
 		i++;
 	}
-	if (!g->color_F || !g->color_C)
+	if (!g->color_f || !g->color_c)
 		free_error("ERROR! MISSING SOME COLORS...", g);
 	return (i);
 }

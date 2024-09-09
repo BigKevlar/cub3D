@@ -6,12 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:39:22 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/03 16:40:38 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:18:20 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
+/**/
 static char	*get_ext(char *file)
 {
 	char	*ext;
@@ -20,11 +21,15 @@ static char	*get_ext(char *file)
 	return (ext);
 }
 
+/**/
 void	parse_ext(char *av)
 {
 	char	*ext;
 
 	ext = get_ext(av);
 	if (ext == NULL || ft_strncmp(ext, ".cub", 4) != 0)
-		free_error("ERROR! WRONG FILE EXTENSION...", NULL);
+	{
+		ft_printf("ERROR! WRONG FILE EXTENSION...");
+		exit (1);
+	}
 }

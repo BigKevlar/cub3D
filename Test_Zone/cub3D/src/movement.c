@@ -6,110 +6,117 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:53:22 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/05 17:24:05 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:21:46 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
-void	rotate_player(t_game *game, int i)
+/**/
+void	rotate_player(t_game *g, int i)
 {
 	if (i == 1)
 	{
-		game->ply->angle += ROTATESPEED;
-		if (game->ply->angle > 2 * M_PI)
-			game->ply->angle -= 2 * M_PI;
+		g->ply->angle += ROTATESPEED;
+		if (g->ply->angle > 2 * M_PI)
+			g->ply->angle -= 2 * M_PI;
 	}
 	else
 	{
-		game->ply->angle -= ROTATESPEED;
-		if (game->ply->angle < 0)
-			game->ply->angle += 2 * M_PI;
+		g->ply->angle -= ROTATESPEED;
+		if (g->ply->angle < 0)
+			g->ply->angle += 2 * M_PI;
 	}
 }
 
-static void	move_player(t_game *game, double move_x, double move_y)
+/**/
+static void	move_player(t_game *g, double move_x, double move_y)
 {
 	int		new_x;
 	int		new_y;
 
 	new_x = 0;
 	new_y = 0;
-	new_x = roundf(game->ply->x + move_x);
-	new_y = roundf(game->ply->y + move_y);
-	if (new_x >= 0 && new_x <= game->map_columns * TILE_SIZE && game->map[game->ply->y/TILE_SIZE][(new_x)/TILE_SIZE] != '1'
-		&& game->map[game->ply->y/TILE_SIZE][(new_x - 1)/TILE_SIZE] != '1')
-		game->ply->x = new_x;
-	if  (new_y >= 0 && new_y <= game->map_rows * TILE_SIZE && game->map[(new_y)/TILE_SIZE][game->ply->x/TILE_SIZE] != '1'
-		&&game->map[(new_y - 1)/TILE_SIZE][game->ply->x/TILE_SIZE] != '1')
-		game->ply->y = new_y;
+	new_x = roundf(g->ply->x + move_x);
+	new_y = roundf(g->ply->y + move_y);
+	if (new_x >= 0 && new_x <= g->map_columns * TILE_SIZE
+		&& g->map[g->ply->y / TILE_SIZE][(new_x) / TILE_SIZE] != '1'
+		&& g->map[g->ply->y / TILE_SIZE][(new_x - 1) / TILE_SIZE] != '1')
+		g->ply->x = new_x;
+	if (new_y >= 0 && new_y <= g->map_rows * TILE_SIZE
+		&& g->map[(new_y) / TILE_SIZE][g->ply->x / TILE_SIZE] != '1'
+		&&g->map[(new_y - 1) / TILE_SIZE][g->ply->x / TILE_SIZE] != '1')
+		g->ply->y = new_y;
 }
 
+/**/
 void	ft_game_hook(void *param)
 {
-	t_game	*game;
+	t_game	*g;
 	double	move_x;
 	double	move_y;
 
 	move_x = 0;
 	move_y = 0;
-	game = param;
-	if (game->ply->rotate == 1)
-		rotate_player(game, 1);
-	if (game->ply->rotate == -1)
-		rotate_player(game, 0);
-	if (game->ply->move_d == true)
+	g = param;
+	if (g->ply->rotate == 1)
+		rotate_player(g, 1);
+	if (g->ply->rotate == -1)
+		rotate_player(g, 0);
+	if (g->ply->move_d == true)
 	{
-		move_x += -sin(game->ply->angle) * MOVESPEED;
-		move_y += cos(game->ply->angle) * MOVESPEED;
+		move_x += -sin(g->ply->angle) * MOVESPEED;
+		move_y += cos(g->ply->angle) * MOVESPEED;
 	}
-	if (game->ply->move_a == true)
+	if (g->ply->move_a == true)
 	{
-		move_x += sin(game->ply->angle) * MOVESPEED;
-		move_y += -cos(game->ply->angle) * MOVESPEED;
+		move_x += sin(g->ply->angle) * MOVESPEED;
+		move_y += -cos(g->ply->angle) * MOVESPEED;
 	}
-	if (game->ply->move_w)
+	if (g->ply->move_w)
 	{
-		move_x += cos(game->ply->angle) * MOVESPEED * game->ply->move_w;
-		move_y += sin(game->ply->angle) * MOVESPEED * game->ply->move_w;
+		move_x += cos(g->ply->angle) * MOVESPEED * g->ply->move_w;
+		move_y += sin(g->ply->angle) * MOVESPEED * g->ply->move_w;
 	}
-	move_player(game, move_x, move_y);
+	move_player(g, move_x, move_y);
 }
 
-void	ft_key_release(mlx_key_data_t keydata, t_game *game)
+/**/
+void	ft_key_release(mlx_key_data_t keydata, t_game *g)
 {
 	if (keydata.key == MLX_KEY_D && (keydata.action == MLX_RELEASE))
-		game->ply->move_d = false;
+		g->ply->move_d = false;
 	else if (keydata.key == MLX_KEY_A && (keydata.action == MLX_RELEASE))
-		game->ply->move_a = false;
+		g->ply->move_a = false;
 	else if (keydata.key == MLX_KEY_S && (keydata.action == MLX_RELEASE))
-		game->ply->move_w = 0;
+		g->ply->move_w = 0;
 	else if (keydata.key == MLX_KEY_W && (keydata.action == MLX_RELEASE))
-		game->ply->move_w = 0;
+		g->ply->move_w = 0;
 	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_RELEASE)
-		game->ply->rotate = 0;
+		g->ply->rotate = 0;
 	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_RELEASE)
-		game->ply->rotate = 0;
+		g->ply->rotate = 0;
 }
 
+/**/
 void	ft_key_hook(mlx_key_data_t keydata, void *param)
 {
-	t_game	*game;
+	t_game	*g;
 
-	game = param;
+	g = param;
 	if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS))
-		game->ply->move_a = true;
+		g->ply->move_a = true;
 	else if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS))
-		game->ply->move_d = true;
+		g->ply->move_d = true;
 	else if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS))
-		game->ply->move_w = -1;
+		g->ply->move_w = -1;
 	else if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-		game->ply->move_w = 1;
+		g->ply->move_w = 1;
 	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
-		game->ply->rotate = -1;
+		g->ply->rotate = -1;
 	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
-		game->ply->rotate = 1;
+		g->ply->rotate = 1;
 	else if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		mlx_close_window(game->mlx);
-	ft_key_release(keydata, game);
+		mlx_close_window(g->mlx);
+	ft_key_release(keydata, g);
 }

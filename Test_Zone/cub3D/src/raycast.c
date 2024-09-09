@@ -6,12 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 14:12:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:23:13 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
+/**/
 int	sign(double n)
 {
 	if (n > 0)
@@ -21,6 +22,7 @@ int	sign(double n)
 	return (0);
 }
 
+/**/
 static bool	wall_hit(t_game *g, double x, double y, char flag)
 {
 	x = floor(x / TILE_SIZE);
@@ -46,6 +48,7 @@ static bool	wall_hit(t_game *g, double x, double y, char flag)
 	return (false);
 }
 
+/**/
 static double	get_v_distance(t_game *g)
 {
 	double	step_x;
@@ -58,8 +61,8 @@ static double	get_v_distance(t_game *g)
 	x_pos = floor(g->ply->x / TILE_SIZE) * TILE_SIZE;
 	if (cos(g->ray->angle) >= 0)
 		x_pos += TILE_SIZE;
-	y_pos =	g->ply->y + (x_pos - g->ply->x) * tan(g->ray->angle);
-	while (!wall_hit(g, x_pos + sign(cos(g->ray->angle)), y_pos, 'v')) //ojo con el sign(cos)
+	y_pos = g->ply->y + (x_pos - g->ply->x) * tan(g->ray->angle);
+	while (!wall_hit(g, x_pos + sign(cos(g->ray->angle)), y_pos, 'v'))
 	{
 		x_pos += step_x;
 		y_pos += step_y;
@@ -69,6 +72,7 @@ static double	get_v_distance(t_game *g)
 	return (sqrt(pow(x_pos - g->ply->x, 2) + pow(y_pos - g->ply->y, 2)));
 }
 
+/**/
 static double	get_h_distance(t_game *g)
 {
 	double	step_x;
@@ -80,9 +84,9 @@ static double	get_h_distance(t_game *g)
 	step_y = TILE_SIZE * sign(sin(g->ray->angle));
 	y_pos = floor(g->ply->y / TILE_SIZE) * TILE_SIZE;
 	if (sin(g->ray->angle) >= 0)
-		y_pos +=  TILE_SIZE;
+		y_pos += TILE_SIZE;
 	x_pos = g->ply->x + (y_pos - g->ply->y) / tan(g->ray->angle);
-	while (!wall_hit(g, x_pos, y_pos + sign(sin(g->ray->angle)), 'h')) //ojo con el sign(sin)
+	while (!wall_hit(g, x_pos, y_pos + sign(sin(g->ray->angle)), 'h'))
 	{
 		x_pos += step_x;
 		y_pos += step_y;
@@ -92,13 +96,14 @@ static double	get_h_distance(t_game *g)
 	return (sqrt(pow(x_pos - g->ply->x, 2) + pow(y_pos - g->ply->y, 2)));
 }
 
+/**/
 void	raycast(void *param)
 {
-	int	i;
+	int		i;
 	double	v_distance;
 	double	h_distance;
 	t_game	*g;
-	double increment;
+	double	increment;
 
 	g = param;
 	increment = FOV / S_W;
@@ -122,7 +127,8 @@ void	raycast(void *param)
 			g->ray->x = g->ray->x2;
 			g->ray->y = g->ray->y2;
 		}
-		g->ray->distance = g->ray->distance * cos(fabs(g->ray->angle - g->ply->angle));
+		g->ray->distance
+			= g->ray->distance * cos(fabs(g->ray->angle - g->ply->angle));
 		render(g, i);
 		i++;
 		g->ray->angle = g->ray->angle + increment;

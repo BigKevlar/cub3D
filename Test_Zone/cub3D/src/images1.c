@@ -6,12 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:57:36 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/06 20:37:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:19:48 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
+/**/
 static uint32_t	rgb_to_uint32(uint8_t r, uint8_t g, uint8_t b)
 {
 	uint32_t	color;
@@ -20,6 +21,7 @@ static uint32_t	rgb_to_uint32(uint8_t r, uint8_t g, uint8_t b)
 	return (color);
 }
 
+/**/
 uint32_t	interpretate_color(t_game *g, char *color)
 {
 	char	**rgb;
@@ -47,6 +49,7 @@ uint32_t	interpretate_color(t_game *g, char *color)
 	return (rgb_to_uint32(red, green, blue));
 }
 
+/**/
 static int	reverse_bytes(int c)
 {
 	unsigned int	b;
@@ -59,6 +62,7 @@ static int	reverse_bytes(int c)
 	return (b);
 }
 
+/**/
 static uint32_t	get_row_color(t_game *g, int colum, int h)
 {
 	int			pix_h;
@@ -72,6 +76,7 @@ static uint32_t	get_row_color(t_game *g, int colum, int h)
 	return (color);
 }
 
+/**/
 uint32_t	get_pixel_color(t_game *g, int size, int tex_colum)
 {
 	uint32_t	color;

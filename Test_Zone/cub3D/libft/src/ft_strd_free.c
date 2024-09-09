@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 22:46:19 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/08/17 17:21:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:12:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_strd_free(char **str)
 	int	pos;
 
 	pos = 0;
-	while (str[pos])
+	while (str && str[pos])
 	{
 		free(str[pos]);
 		pos++;

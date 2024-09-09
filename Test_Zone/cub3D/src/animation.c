@@ -6,12 +6,13 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 21:30:16 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/06 20:22:13 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:18:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
+/**/
 void	load_torch_textures(t_game *g)
 {
 	int	torch_x;
@@ -36,6 +37,7 @@ void	load_torch_textures(t_game *g)
 	g->torch_img->instances->z = 2;
 }
 
+/**/
 void	draw_torch(t_game *g)
 {
 	if (g->actual_torch_frame == 0)
