@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:33 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 17:34:34 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:52:42 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	ft_memset(&g, '0', sizeof(t_game));
 	if ((ac != 2) || (ac == 2 && av[1] == NULL))
 	{
-		ft_printf("ERROR! WRONG ARGUMENTS SINTAXIS...");
+		ft_printf("ERROR! WRONG ARGUMENTS SINTAXIS...\n");
 		exit (1);
 	}
 	parse_ext(av[1]);

@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 20:18:05 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 16:56:33 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/09 19:02:44 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,10 @@ void	get_map(t_game *g, int i)
 	int		map_start;
 	char	*line;
 
-	while (g->file[i][0] == '\n')
+	while (g->file[i] && g->file[i][0] == '\n')
 		i++;
+	if (!g->file[i])
+		free_error("ERROR! MAP EMPTY", g);
 	while (g->file[i])
 	{
 		j = 0;
