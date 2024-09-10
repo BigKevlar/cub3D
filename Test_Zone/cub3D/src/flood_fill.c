@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 00:08:34 by jmartos           #+#    #+#             */
-/*   Updated: 2024/09/10 16:00:52 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 20:01:46 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,28 @@ void	player_position(t_game *g)
 {
 	int	c1;
 	int	c2;
+	int	player;
 
+	player = 0;
 	c1 = 0;
-	while (g->map[c1])
+	while (g->map[++c1])
 	{
 		c2 = 0;
-		while (g->map[c1][c2])
+		while (g->map[c1][++c2])
 		{
 			if (g->map[c1][c2] == 'N' || g->map[c1][c2] == 'S'
 				|| g->map[c1][c2] == 'E' || g->map[c1][c2] == 'W')
 			{
+				player++;
 				g->player_y = c1;
 				g->player_x = c2;
 				g->player_orientation = g->map[g->player_y][g->player_x];
 				g->map[g->player_y][g->player_x] = '0';
-				return ;
 			}
-			c2++;
 		}
-		c1++;
 	}
+	if (player != 1)
+		free_error("ERROR! PLAYERS FAIL...", g);
 }
 
 /**/
@@ -86,11 +88,7 @@ static int	check_zero(t_game *g, int y, int x)
 {
 	if (x <= 0 || y <= 0
 		|| x >= g->map_columns || y >= g->map_rows - 1)
-	{
-		printf("x: %d\n", x);
-		printf("char: %c\n", g->map[y][x]);
 		return (0);
-	}
 	if (!g->map[y + 1][x]
 		|| g->map[y + 1][x] == ' '
 		|| g->map[y - 1][x] == ' '

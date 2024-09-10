@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:34:55 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 22:13:41 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 19:35:50 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	tokenizing(t_game *g, char **texture, char **tokens, int *flag)
 	if (*texture || tokens[2])
 	{
 		ft_strd_free(tokens);
-		free_error("ERROR! DUPLICATE TEXTURE IN FILE...", g);
+		free_error("ERROR! FORMAT ERROR IN TEXTURE OR COLOR...", g);
 	}
 	*texture = ft_strdup(tokens[1]);
 	*flag += 1;

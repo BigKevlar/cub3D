@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_error_exit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:50:53 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/10 19:11:37 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/10 20:06:56 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 /**/
 static void	continue_free(t_game *g)
 {
+	free (g->texture_no);
+	free (g->texture_so);
+	free (g->texture_we);
+	free (g->texture_ea);
 	free (g->t_tex00);
 	free (g->t_tex01);
 	free (g->t_tex02);
@@ -60,10 +64,6 @@ void	free_error(char *msg, t_game *g)
 		if (g->tex && g->tex->door)
 			mlx_delete_texture(g->tex->door);
 		free(g->tex);
-		free (g->texture_no);
-		free (g->texture_so);
-		free (g->texture_we);
-		free (g->texture_ea);
 		free (g->color_c);
 		free (g->color_f);
 		continue_free(g);

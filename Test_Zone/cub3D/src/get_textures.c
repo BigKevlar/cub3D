@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 20:53:25 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 22:09:29 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 19:20:10 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	token_texture(t_game *g, char **tokens, int *flag)
 	else
 	{
 		ft_strd_free(tokens);
-		free_error("ERROR! TEXTURES EMPTY", g);
+		free_error("ERROR! TEXTURES FAIL...", g);
 	}
 }
 

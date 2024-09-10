@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 20:53:23 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 22:13:27 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 19:20:55 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	token_colors(t_game *g, char **tokens, int *flag)
 	else
 	{
 		ft_strd_free(tokens);
-		free_error("ERROR! COLORS EMPTY", g);
+		free_error("ERROR! COLORS FAIL...", g);
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/10 17:44:26 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/10 19:32:09 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,11 +147,11 @@ int			get_colors(t_game *g, int i);
 /* get_textures.c  */
 int			get_textures(t_game *g, int i);
 /* images1.c */
-uint32_t	interpretate_color(t_game *g, char *color);
 uint32_t	get_pixel_color(t_game *g, int size, int tex_colum);
 /* images2.c */
 void		init_textures(t_game *g);
 int			check_comas(char *rgb);
+uint32_t	interpretate_color(t_game *g, char *color);
 /* init_data.c */
 void		malloc_data(t_game *g);
 void		init_data_1(t_game *g);
