@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:49:34 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 17:18:26 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 21:58:36 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	init_player(t_game *g)
 	g->ply->move_d = false;
 	g->ply->move_w = 0;
 	g->ply->rotate = 0;
-	g->ply->x = g->player_x * TILE_SIZE;
-	g->ply->y = g->player_y * TILE_SIZE;
+	g->ply->x = g->player_x * TILE_SIZE + TILE_SIZE / 2;
+	g->ply->y = g->player_y * TILE_SIZE + TILE_SIZE / 2;
 	g->ratio = S_H * TILE_SIZE;
 }
 
