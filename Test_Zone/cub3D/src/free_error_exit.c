@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 18:50:53 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 22:27:32 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:55:11 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,14 @@ void	win_game(char *msg, t_game *g)
 	free(g->ray);
 	free(g->ply);
 	mlx_terminate(g->mlx);
+}
+
+/**/
+int	sign(double n)
+{
+	if (n > 0)
+		return (1);
+	if (n < 0)
+		return (-1);
+	return (0);
 }

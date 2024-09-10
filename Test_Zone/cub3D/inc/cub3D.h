@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 23:13:06 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:55:29 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ void		check_map(t_game *g);
 /* free_error_exit.c */
 void		free_error(char *msg, t_game *g);
 void		win_game(char *msg, t_game *g);
+int			sign(double n);
 /* get_colors.c  */
 int			get_colors(t_game *g, int i);
 /* get_textures.c  */
@@ -157,12 +158,11 @@ void		check_inits(t_game *g);
 /* map.c */
 void		get_map(t_game *g, int index);
 /* movements.c */
-void		rotate_player(t_game *g, int i);
+void		rotate_player(t_game *g);
 void		ft_game_hook(void *param);
 void		ft_key_release(mlx_key_data_t keydata, t_game *g);
 void		ft_key_hook(mlx_key_data_t keydata, void *param);
 /* raycast.c */
-int			sign(double n);
 void		raycast(void *param);
 /* render.c */
 int			get_size(t_ray *ray);

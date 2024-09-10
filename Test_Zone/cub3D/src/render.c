@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:16:23 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 23:02:17 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:52:27 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,9 @@ void	render(t_game *g, int i)
 	{
 		if (start >= 0 && start < S_H && i < S_W)
 		{
-			color = get_pixel_color(g, j, tex_colum);
+			color = get_pixel_color(g, j++, tex_colum);
 			mlx_put_pixel(g->img->window, i, start, color);
 		}
-		j++;
 		start++;
 	}
 }

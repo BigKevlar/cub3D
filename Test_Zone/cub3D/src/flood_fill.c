@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 00:08:34 by jmartos           #+#    #+#             */
-/*   Updated: 2024/09/09 22:47:31 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:00:52 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	check_map(t_game *g)
 		x = 0;
 		while (g->map[y][x])
 		{
-			if (g->map[y][x] == '0')
+			if (g->map[y][x] == '0' || g->map[y][x] == '2')
 			{
 				if (!check_zero(g, y, x))
 					free_error("ERROR! MAP HAS OPEN AREA...", g);

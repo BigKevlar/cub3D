@@ -6,21 +6,11 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:19:02 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 15:23:13 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:04:08 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
-
-/**/
-int	sign(double n)
-{
-	if (n > 0)
-		return (1);
-	if (n < 0)
-		return (-1);
-	return (0);
-}
 
 /**/
 static bool	wall_hit(t_game *g, double x, double y, char flag)
@@ -96,20 +86,11 @@ static double	get_h_distance(t_game *g)
 	return (sqrt(pow(x_pos - g->ply->x, 2) + pow(y_pos - g->ply->y, 2)));
 }
 
-/**/
-void	raycast(void *param)
+void	casting(t_game *g, double increment, int i)
 {
-	int		i;
 	double	v_distance;
 	double	h_distance;
-	t_game	*g;
-	double	increment;
 
-	g = param;
-	increment = FOV / S_W;
-	i = 0;
-	g->ray->angle = g->ply->angle - (FOV / 2);
-	ft_clear_window(g);
 	while (i < S_W)
 	{
 		v_distance = get_v_distance(g);
@@ -127,12 +108,26 @@ void	raycast(void *param)
 			g->ray->x = g->ray->x2;
 			g->ray->y = g->ray->y2;
 		}
-		g->ray->distance
-			= g->ray->distance * cos(fabs(g->ray->angle - g->ply->angle));
+		g->ray->distance *= cos(fabs(g->ray->angle - g->ply->angle));
 		render(g, i);
 		i++;
 		g->ray->angle = g->ray->angle + increment;
 	}
+}
+
+/**/
+void	raycast(void *param)
+{
+	t_game	*g;
+	double	increment;
+	int		i;
+
+	g = param;
+	increment = FOV / S_W;
+	i = 0;
+	g->ray->angle = g->ply->angle - (FOV / 2);
+	ft_clear_window(g);
+	casting(g, increment, i);
 	g->img->window->instances->z = 1;
 	draw_torch(g);
 }

@@ -6,7 +6,7 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 20:18:05 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 22:56:39 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:42:43 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,31 @@ static void	fill_map(t_game *g)
 }
 
 /**/
+static void	maping(t_game *g, int i)
+{
+	int		j;
+	char	*line;
+
+	j = 0;
+	while (g->file[i])
+	{
+		line = ft_strtrim(g->file[i], "\n");
+		g->map[j] = ft_strdup(line);
+		free(line);
+		if ((int)ft_strlen(g->file[i]) > g->map_columns)
+			g->map_columns = ft_strlen(g->file[i]);
+		if (!g->map[j])
+			free_error("ERROR! MAP MEMORY ALLOCATION FAILED...", g);
+		i++;
+		j++;
+	}
+}
+
+/**/
 void	get_map(t_game *g, int i)
 {
 	int		j;
 	int		map_start;
-	char	*line;
 
 	while (g->file[i] && g->file[i][0] == '\n')
 		i++;
@@ -84,18 +104,6 @@ void	get_map(t_game *g, int i)
 	g->map = ft_calloc(g->map_rows + 1, sizeof(char *));
 	if (!g->map)
 		free_error("ERROR! MAP MEMORY ALLOCATION FAILED...", g);
-	j = 0;
-	while (g->file[i])
-	{
-		line = ft_strtrim(g->file[i], "\n");
-		g->map[j] = ft_strdup(line);
-		free(line);
-		if ((int)ft_strlen(g->file[i]) > g->map_columns)
-			g->map_columns = ft_strlen(g->file[i]);
-		if (!g->map[j])
-			free_error("ERROR! MAP MEMORY ALLOCATION FAILED...", g);
-		i++;
-		j++;
-	}
+	maping(g, i);
 	fill_map(g);
 }

@@ -6,22 +6,22 @@
 /*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:53:22 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 15:21:46 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:50:11 by jmartos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3D.h"
 
 /**/
-void	rotate_player(t_game *g, int i)
+void	rotate_player(t_game *g)
 {
-	if (i == 1)
+	if (g->ply->rotate == 1)
 	{
 		g->ply->angle += ROTATESPEED;
 		if (g->ply->angle > 2 * M_PI)
 			g->ply->angle -= 2 * M_PI;
 	}
-	else
+	else if (g->ply->rotate == -1)
 	{
 		g->ply->angle -= ROTATESPEED;
 		if (g->ply->angle < 0)
@@ -59,10 +59,7 @@ void	ft_game_hook(void *param)
 	move_x = 0;
 	move_y = 0;
 	g = param;
-	if (g->ply->rotate == 1)
-		rotate_player(g, 1);
-	if (g->ply->rotate == -1)
-		rotate_player(g, 0);
+	rotate_player(g);
 	if (g->ply->move_d == true)
 	{
 		move_x += -sin(g->ply->angle) * MOVESPEED;
