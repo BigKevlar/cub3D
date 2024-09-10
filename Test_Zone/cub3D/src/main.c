@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:33 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 18:52:42 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 18:39:04 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ int	main(int ac, char **av)
 {
 	t_game	g;
 
+	g.ply = NULL;
+	g.tex = NULL;
+	g.img = NULL;
+	g.ray = NULL;
 	ft_memset(&g, '0', sizeof(t_game));
 	if ((ac != 2) || (ac == 2 && av[1] == NULL))
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 16:21:17 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/10 14:55:29 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:44:26 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ typedef struct s_game
 	int				player_y;
 	char			player_orientation;
 	int				ratio;
+	uint32_t		ceiling_color;
+	uint32_t		floor_color;
 	mlx_texture_t	*t_tex00;
 	mlx_texture_t	*t_tex01;
 	mlx_texture_t	*t_tex02;

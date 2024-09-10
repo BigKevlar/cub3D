@@ -6,7 +6,7 @@
 /*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:57:36 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/10 14:02:06 by arosas-j         ###   ########.fr       */
+/*   Updated: 2024/09/10 17:48:04 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ uint32_t	interpretate_color(t_game *g, char *color)
 		i++;
 	}
 	free (rgb);
+	if (red > 255 || green > 255 || blue > 255
+		|| red < 0 || green < 0 || blue < 0)
+		free_error("ERROR! RGB BIGGER THAN 255...", g);
 	return (rgb_to_uint32(red, green, blue));
 }
 

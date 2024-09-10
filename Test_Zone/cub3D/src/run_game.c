@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   run_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 19:12:59 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 21:07:26 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 18:32:33 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,18 @@ static void	draw_background(t_game *g)
 {
 	int			y;
 	int			x;
-	uint32_t	ceiling_color;
-	uint32_t	floor_color;
 
 	y = 0;
 	x = 0;
-	ceiling_color = interpretate_color(g, g->color_c);
-	floor_color = interpretate_color(g, g->color_f);
 	while (y < S_H)
 	{
 		x = 0;
 		while (x < S_W)
 		{
 			if (y < S_H / 2)
-				mlx_put_pixel(g->img->background, x, y, ceiling_color);
+				mlx_put_pixel(g->img->background, x, y, g->ceiling_color);
 			else
-				mlx_put_pixel(g->img->background, x, y, floor_color);
+				mlx_put_pixel(g->img->background, x, y, g->floor_color);
 			x++;
 		}
 		y++;
@@ -53,6 +49,8 @@ void	ft_mouse_hook(void *param)
 /**/
 void	run_game(t_game *g)
 {
+	g->ceiling_color = interpretate_color(g, g->color_c);
+	g->floor_color = interpretate_color(g, g->color_f);
 	g->mlx = mlx_init(S_W, S_H, "cub3D", true);
 	g->img->background = mlx_new_image(g->mlx, S_W, S_H);
 	g->img->window = mlx_new_image(g->mlx, S_W, S_H);
