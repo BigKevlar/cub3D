@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   images2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 20:35:29 by jmartos-          #+#    #+#             */
-/*   Updated: 2024/09/09 17:47:21 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:08:32 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,27 @@ void	init_textures(t_game *g)
 {
 	g->tex->n = mlx_load_png(g->texture_no);
 	g->tex->s = mlx_load_png(g->texture_so);
-	g->tex->e = mlx_load_png(g->texture_we);
-	g->tex->w = mlx_load_png(g->texture_ea);
+	g->tex->e = mlx_load_png(g->texture_ea);
+	g->tex->w = mlx_load_png(g->texture_we);
 	g->tex->door = mlx_load_png("tex/Door.png");
 	if (!g->tex->w || !g->tex->s || !g->tex->e || !g->tex->w || !g->tex->door)
+	{
+		if (g->tex->n)
+			mlx_delete_texture(g->tex->n);
+		if (g->tex->s)
+			mlx_delete_texture(g->tex->s);
+		if (g->tex->e)
+			mlx_delete_texture(g->tex->e);
+		if (g->tex->w)
+			mlx_delete_texture(g->tex->w);
+		if (g->tex->door)
+			mlx_delete_texture(g->tex->door);
+		free(g->tex);
+		free(g->ray);
+		free(g->img);
+		free(g->ply);
 		free_error("ERROR! LOADING TEXTURES FAIL.\n", g);
+	}
 }
 
 /**/

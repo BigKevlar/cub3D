@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   images1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmartos- <jmartos-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arosas-j <arosas-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 20:57:36 by arosas-j          #+#    #+#             */
-/*   Updated: 2024/09/09 15:19:48 by jmartos-         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:02:06 by arosas-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,27 @@ static uint32_t	get_row_color(t_game *g, int colum, int h)
 	return (color);
 }
 
+static uint32_t apply_shadow(uint32_t color, float shadow)
+{
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+	uint8_t a;
+
+	r = ((color >> 24) & 0xFF) * shadow;
+	g = ((color >> 16) & 0xFF) * shadow;
+	b = ((color >> 8) & 0xFF) * shadow;
+	a = color & 0xFF;
+	return ((r << 24) | (g << 16) | (b << 8) | a);
+}
 /**/
 uint32_t	get_pixel_color(t_game *g, int size, int tex_colum)
 {
 	uint32_t	color;
+	float shadow;
 
 	color = get_row_color(g, tex_colum, size);
+	shadow = 1.0f / (1.0f + g->ray->distance * 0.005f);
+	color = apply_shadow(color, shadow);
 	return (color);
 }
