@@ -1,7 +1,7 @@
-NO tex/Wall.png
-SO tex/Wall.png
-WE tex/Wall.png
-EA tex/Wall.png
+NO tex/Wall1.png
+SO tex/Wall2.png
+WE tex/Wall3.png
+EA tex/Wall4.png
 
 F 220,100,0
 C 225,30,0
